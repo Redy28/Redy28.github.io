@@ -114,5 +114,48 @@ ens33은 xp로 연결이 되어있고 ens34는 2003 환경에 연결이 되어 �
 
 ![2022-07-13-15ping확인2003](../images/2022-07-13-Routing Linux/2022-07-13-15ping확인2003.PNG)
 
-
 <br><br><br>
+
+이제 xp환경에서 Router와 Gateway에 ping이 잘 가는지 확인 해보겠습니다.
+
+<br>
+
+Router와 Gateway에 ping이 잘 가지만 아직 2003과는 ping이 안되는 상황입니다.
+
+![2022-07-13-16pxp에서게이트웨이핑확인](../images/2022-07-13-Routing Linux/2022-07-13-16pxp에서게이트웨이핑확인.PNG)
+
+![2022-07-13-16pxp에서라우터로핑확인](../images/2022-07-13-Routing Linux/2022-07-13-16pxp에서라우터로핑확인.PNG)
+
+<br>
+
+Router역할을 하는 Linux에 가서 Routing table을 만들어 보겠습니다.
+
+sysctl.conf 파일에 들어가서 맨 밑에 net.ipv4.ip_forward=1 만 추가해 주겠습니다.
+
+![2022-07-13-18라우터가되도록설정하기2](../images/2022-07-13-Routing Linux/2022-07-13-18라우터가되도록설정하기2.PNG)
+
+![2022-07-13-17라우터가되도록설정하기1](../images/2022-07-13-Routing Linux/2022-07-13-17라우터가되도록설정하기1.PNG)
+
+<br>
+
+추가한 후 네트워크를 재시작 해주시면 net.ipv4.ip_forward=0 에서 net.ipv4.ip_forward=1로 바뀌게 됩니다.
+
+![2022-07-13-18라우터가되도록설정하기3](../images/2022-07-13-Routing Linux/2022-07-13-18라우터가되도록설정하기3.PNG)
+
+<br>
+
+Routing table을 확인 해 보겠습니다.
+
+xp, 2003 둘 다 잘 생성되어 있습니다.
+
+![2022-07-13-19라우팅테이블확인](../images/2022-07-13-Routing Linux/2022-07-13-19라우팅테이블확인.PNG)
+
+<br>
+
+xp환경으로 가서 2003에 ping을 보내 보겠습니다.
+
+<br>
+
+Routing table을 설정하니 xp에서 2003으로 통신이 됩니다.
+
+![2022-07-13-20라우팅후xp에서2003ping확인](../images/2022-07-13-Routing Linux/2022-07-13-20라우팅후xp에서2003ping확인.PNG)
