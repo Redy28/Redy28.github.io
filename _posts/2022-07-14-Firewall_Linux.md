@@ -343,7 +343,7 @@ INPUT chain 으로 들어오는 작업으로 사용자 정의 chain으로 연결
 
 Linux에서 xp로 ping확인![2022-07-14-53리눅스에서xp로핑실패PNG](../images/2022-07-14-Firewall_Linux/2022-07-14-53리눅스에서xp로핑실패PNG.PNG)
 
-ICMP에 IP 172.16.0.100에서 오는게 아니면 다 차단하겠다 설정을 해놔서 ping이 안가는 것을 확인 할 수 있습니다.
+
 
 
 
