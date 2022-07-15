@@ -331,6 +331,12 @@ mangle table로 TTL셋팅 변경![2022-07-14-44ttl셋팅변경PNG](../images/202
 
 <br>
 
+XP에서 Wire shark로 확인![2022-07-14-46xp에서ttl와이어샤크로확인PNG](../images/2022-07-14-Firewall_Linux/2022-07-14-46xp에서ttl와이어샤크로확인PNG.PNG)
+
+request reply 확인하면 바뀐점 확인 가능
+
+<br>
+
 
 
 
