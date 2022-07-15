@@ -257,6 +257,94 @@ ICMP 확인하기
 
 <br>
 
+<br>
+
+##### 리눅스 서버로 ICMP 접근시 기록 (LOG) 를 남긴다
+
+XP에서 -t 옵션을 사용해서 ping을 계속 보내기
+
+![2022-07-14-34xp에서핑보내기PNG](../images/2022-07-14-Firewall_Linux/2022-07-14-34xp에서핑보내기PNG-16578678240362.PNG)
+
+<br>
+
+Linux에서 LOG확인 하기![2022-07-14-35리눅스에서log보기PNG](../images/2022-07-14-Firewall_Linux/2022-07-14-35리눅스에서log보기PNG.PNG)
+
+<br>
+
+tail -f 사용해서 실시간으로 LOG계속 확인하기![2022-07-14-36tail로확인하기PNG](../images/2022-07-14-Firewall_Linux/2022-07-14-36tail로확인하기PNG.PNG)
+
+<br>
+
+LOG에 별도 표기하기![2022-07-14-38log에별도표기하기PNG](../images/2022-07-14-Firewall_Linux/2022-07-14-38log에별도표기하기PNG.PNG)
+
+<br>
+
+XP에서 다시 ping보내고 tail로 확인![2022-07-14-39tail로표기확인PNG](../images/2022-07-14-Firewall_Linux/2022-07-14-39tail로표기확인PNG.PNG)
+
+[ICMP LOG] 뜨는게 확인되면 성공 입니다.
+
+<br>
+
+<br>
+
+##### 로컬 루프백 인터페이스 차단
+
+루프백 인터페이스 확인![2022-07-14-40루프백인터페이스차단하기1PNG](../images/2022-07-14-Firewall_Linux/2022-07-14-40루프백인터페이스차단하기1PNG.PNG)
+
+<br>
+
+루프백 인터페이스 ping으로 확인
+
+루프백 인터페이스는 내부에서만 사용하기 때문에 외부에서 ping을 보낼 수 없습니다. 내부인 Linux에서 확인 하겠습니다.![2022-07-14-41루프백인터페이스차단하기2PNG](../images/2022-07-14-Firewall_Linux/2022-07-14-41루프백인터페이스차단하기2PNG.PNG)
+
+<br>
+
+루프백 인터페이스 차단하기![2022-07-14-42루프백인터페이스차단하기3PNG](../images/2022-07-14-Firewall_Linux/2022-07-14-42루프백인터페이스차단하기3PNG.PNG)
+
+<br>
+
+ping으로 차단 확인하기![2022-07-14-43루프백인터페이스차단하기4PNG](../images/2022-07-14-Firewall_Linux/2022-07-14-43루프백인터페이스차단하기4PNG.PNG)
+
+<br>
+
+<br>
+
+<br>
+
+### mangle tables
+
+패킷의 필드를 변조할 수 있는 table입니다.
+
+<br>
+
+Window의 기본 TTL은 128 Linux는 64 입니다.
+
+mangle table을 사용해서 Linux의 TTL 셋팅을 바꿔 보겠습니다.
+
+<br>
+
+mangle table로 TTL셋팅 변경![2022-07-14-44ttl셋팅변경PNG](../images/2022-07-14-Firewall_Linux/2022-07-14-44ttl셋팅변경PNG.PNG)
+
+<br>
+
+바로 XP로 가서 ping을 해보면 원래 TTL이 64로 와야 하지만 128로 오는 것을 확인이 가능합니다.![2022-07-14-45xp에서ttl확인PNG](../images/2022-07-14-Firewall_Linux/2022-07-14-45xp에서ttl확인PNG.PNG)
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
