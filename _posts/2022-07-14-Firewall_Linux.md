@@ -307,6 +307,48 @@ ping으로 차단 확인하기![2022-07-14-43루프백인터페이스차단하�
 
 <br>
 
+##### 사용자 정의 chain 을 만들어서 특정한 상황에 대한 정책을 별도로 만들어서 처리 
+
+icmp 로 접근한 내역은 모두 기록하고 특정 IP  주소(XP) 면 별도 응답없이 차단(DROP) 처리 하겠습니다.
+
+<br>
+
+사용자 체인 추가, 삭제 해보기![2022-07-14-47test체인생성PNG](../images/2022-07-14-Firewall_Linux/2022-07-14-47test체인생성PNG.PNG)
+
+![2022-07-14-48test체인삭제PNG](../images/2022-07-14-Firewall_Linux/2022-07-14-48test체인삭제PNG.PNG)
+
+<br>
+
+built-in chain 을 삭제 시도![2022-07-14-49빌드인체인삭제시도실패PNG](../images/2022-07-14-Firewall_Linux/2022-07-14-49빌드인체인삭제시도실패PNG.PNG)
+
+built-in chain은 사용자가 만든 chain이 아니라 -X 옵션 으로는 삭제가 불가능 합니다.
+
+사용자 chain만 삭제가 가능 하다는 걸 알 수 있는 부분 입니다.
+
+<br>
+
+다시 사용자 chain생성![2022-07-14-50사용자체인생성PNG](../images/2022-07-14-Firewall_Linux/2022-07-14-50사용자체인생성PNG.PNG)
+
+<br>
+
+사용자 정의 chain에 정책 추가![2022-07-14-51사용자체인생성2PNG](../images/2022-07-14-Firewall_Linux/2022-07-14-51사용자체인생성2PNG.PNG)
+
+<br>
+
+INPUT chain 으로 들어오는 작업으로 사용자 정의 chain으로 연결![2022-07-14-52사용자체인생성하고input설정PNG](../images/2022-07-14-Firewall_Linux/2022-07-14-52사용자체인생성하고input설정PNG.PNG)
+
+-j 사용자 정의 chain명을 해주시면 됩니다.
+
+<br>
+
+Linux에서 xp로 ping확인![2022-07-14-53리눅스에서xp로핑실패PNG](../images/2022-07-14-Firewall_Linux/2022-07-14-53리눅스에서xp로핑실패PNG.PNG)
+
+ICMP에 IP 172.16.0.100에서 오는게 아니면 다 차단하겠다 설정을 해놔서 ping이 안가는 것을 확인 할 수 있습니다.
+
+
+
+<br>
+
 <br>
 
 <br>
