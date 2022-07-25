@@ -65,3 +65,19 @@ https://www.hmailserver.com/download 이 홈페이지 에서 메일 서버를 �
 다음 다음 install 눌러 주시면 됩니다.
 
 <br>
+
+메일 서버 설정![2022-07-25-08케넥트누르고암호입력](../images/2022-07-25-Mail Service/2022-07-25-08케넥트누르고암호입력.PNG)
+
+Connect를 누르면 password 입력창이 뜹니다.
+
+간단하게 입력 하시고 완료해 주시면 됩니다.
+
+<br>
+
+Connect 완료![2022-07-25-09커넥트완료](../images/2022-07-25-Mail Service/2022-07-25-09커넥트완료.PNG)
+
+<br>
+
+x4 환경에서 DNS 삭제![2022-07-25-10dns제거](../images/2022-07-25-Mail Service/2022-07-25-10dns제거.PNG)
+
+<br>
