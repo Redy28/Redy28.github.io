@@ -80,4 +80,12 @@ Connect 완료![2022-07-25-09커넥트완료](../images/2022-07-25-Mail Service/
 
 x4 환경에서 DNS 삭제![2022-07-25-10dns제거](../images/2022-07-25-Mail Service/2022-07-25-10dns제거.PNG)
 
+DNS가 충돌 하거나 다른 곳으로 전달 될 수 있어서 삭제 해주도록 하겠습니다.
+
+<br>
+
+다시 메일 서버 설정으로 돌아와서 enalbe 체크 해제![2022-07-25-11enable해제](../images/2022-07-25-Mail Service/2022-07-25-11enable해제.PNG)
+
+setting > advanced > autoban > enabled 체크 해제 > save 순으로 해주시면 됩니다.
+
 <br>
