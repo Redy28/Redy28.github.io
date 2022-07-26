@@ -63,7 +63,71 @@ dovecot 설정변경 3![2022-07-26-08dovecot설정변경3 10행복붙](../images
 
 <br>
 
-dovecot 설정변경 4
+dovecot 설정변경 4![2022-07-26-08dovecot설정변경4 8행복붙](../images/2022-07-26-Linux Mail Server/2022-07-26-08dovecot설정변경4 8행복붙.PNG)
+
+`/etc/dovecot/conf.d/10-ssl.conf` 8행 복사 후 ssl = no 로 변경
+
+<br>
+
+dovecot 재시작, 상태확인![2022-07-26-09dovecot재시작 상태확인](../images/2022-07-26-Linux Mail Server/2022-07-26-09dovecot재시작 상태확인.PNG)
+
+<br>
+
+mailx 확인![2022-07-26-10mailx확인](../images/2022-07-26-Linux Mail Server/2022-07-26-10mailx확인.PNG)
+
+<br>
+
+mail 보내기![2022-07-26-11메일보내기](../images/2022-07-26-Linux Mail Server/2022-07-26-11메일보내기.PNG)
+
+마지막에 ctrl + d 하시면 끝내기 입니다.
+
+<br>
+
+메일함 가서 확인 ![2022-07-26-12메일함가서확인](../images/2022-07-26-Linux Mail Server/2022-07-26-12메일함가서확인.PNG)
+
+<br>
+
+DNS 주소 변경![2022-07-26-13dns주소변경](../images/2022-07-26-Linux Mail Server/2022-07-26-13dns주소변경.PNG)
+
+<br>
+
+nslookup type=mx 확인![2022-07-26-14nslookup확인 type=mx](../images/2022-07-26-Linux Mail Server/2022-07-26-14nslookup확인 type=mx.PNG)
+
+<br>
+
+nslookup type=a 확인![2022-07-26-15nslookup확인 type=a](../images/2022-07-26-Linux Mail Server/2022-07-26-15nslookup확인 type=a.PNG)
+
+조원들과 자신의 서버가 제대로 구성 되었는지 확인하는 방법 입니다.
+
+<br>
+
+test용 user01 생성하기![2022-07-26-16user01생성1](../images/2022-07-26-Linux Mail Server/2022-07-26-16user01생성1.PNG)
+
+![2022-07-26-17user01생성2](../images/2022-07-26-Linux Mail Server/2022-07-26-17user01생성2.PNG)
+
+<br>
+
+아웃룩 설정 변경![2022-07-26-18아웃룩설정변경](../images/2022-07-26-Linux Mail Server/2022-07-26-18아웃룩설정변경.PNG)
+
+계정이름에 user01만 써줘야 합니다.
+
+<br>
+
+메일 주고 받기![2022-07-26-19메일주고받기1](../images/2022-07-26-Linux Mail Server/2022-07-26-19메일주고받기1.PNG)
+
+![2022-07-26-20메일주고받기2](../images/2022-07-26-Linux Mail Server/2022-07-26-20메일주고받기2.PNG)
+
+메일 주고 받기 성공 입니다!!
+
+<br>
+
+Linux에서 확인![2022-07-26-21리눅스에서확인](../images/2022-07-26-Linux Mail Server/2022-07-26-21리눅스에서확인.PNG)
+
+tcp, pop3가 제대로 작동하는 것을 볼 수 있습니다.
+
+<br>
+
+
 
 
 
