@@ -148,5 +148,7 @@ Wire Shark를 보면 Discover, Offer, Request, Ack가 보이는데 이것들은 
 
 동작 방식은 위의 사진대로 Client가 IP주소를 Server에 요청하면 Server가 응답하며 IP주소를 주는 방식 입니다.
 
+이 방식은 Ack가 끝날때 까지는 주소를 사용할 수 없습니다.!!!!
+
 <br>
 
