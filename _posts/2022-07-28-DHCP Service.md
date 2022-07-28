@@ -68,3 +68,11 @@ Multicast Group을 위해 할당되는 주소
 
  <br>
 
+##### TCP/IP configuration![2022-07-28-05확인하기5번](../images/2022-07-28-DHCP Service/2022-07-28-05확인하기5번.PNG)
+
+![2022-07-28-06확인하기6번](../images/2022-07-28-DHCP Service/2022-07-28-06확인하기6번.PNG)
+
+IP address, Subnet mask, routing(G/W), DNS Server 는 네트워크내에서의 유일성을 위해 필요
+
+ <br>
+
