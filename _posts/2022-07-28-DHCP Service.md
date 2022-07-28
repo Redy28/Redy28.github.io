@@ -152,3 +152,37 @@ Wire Shark를 보면 Discover, Offer, Request, Ack가 보이는데 이것들은 
 
 <br>
 
+이 과정을 하나씩 뜯어서 보면
+
+Discover![2022-07-28-20discover](../images/2022-07-28-DHCP Service/2022-07-28-20discover.PNG)
+
+Client가 Server에 IP주소를 달라고 요청하는 과정입니다.
+
+<br>
+
+Offer![2022-07-28-21offer](../images/2022-07-28-DHCP Service/2022-07-28-21offer.PNG)
+
+Server가 Client에게 IP주소를 주는 모습 입니다.
+
+<br>
+
+Request![2022-07-28-22Request](../images/2022-07-28-DHCP Service/2022-07-28-22Request.PNG)
+
+A를 가진 Client가 C에게 offer 받은 주소 B를 사용 하겠다 라는 뜻 입니다.
+
+<br>
+
+Ack![2022-07-28-23ack](../images/2022-07-28-DHCP Service/2022-07-28-23ack.PNG)
+
+Server에서 사용 요청한 172.16.0.50를 승인을 해주고
+
+사용기간은 8일(lease time)
+
+4일(50% ,Renewal time) 이내에 재사용 요청 (request) 만약에 못하
+
+면 7일(87.5% rebinding time) 정도까지 하되 그안에 못하면 8일
+
+(lease time)되면 취소 라는 뜻의 내용들이 적혀 있습니다.
+
+<br>
+
