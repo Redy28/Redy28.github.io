@@ -80,7 +80,7 @@ IP address, Subnet mask, routing(G/W), DNS Server 는 네트워크내에서의 �
 
 ##### DHCP  서버 만들기
 
-구상도
+구상도![2022-07-28-24구상도](../images/2022-07-28-DHCP Service/2022-07-28-24구상도.PNG)
 
  <br>
 
