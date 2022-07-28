@@ -190,7 +190,7 @@ Server에서 사용 요청한 172.16.0.50를 승인을 해주고
 
 <br>
 
-###  DHCP 임대기간 
+###  DHCP 임대기간 - 자동 갱신
 
 <br>
 
@@ -245,6 +245,44 @@ filter를 해제하고 Wire Shark를 다시 보겠습니다.![2022-07-28-34필�
 Gratuitous ARP가 보입니다.
 
 Gratuitous ARP는 APIPA 겹치는것 또는 일반적으로 컴퓨터 시작시 IP주소 중복 체크를 합니다.
+
+<br>
+
+<br>
+
+<br>
+
+### DHCP 임대기간 - 자동 갱신
+
+DHCP 다시 시작![2022-07-28-36다시시작와이어샤크](../images/2022-07-28-DHCP Service/2022-07-28-36다시시작와이어샤크.PNG)
+
+DHCP를 다시 시작하면 Wire Shark에 inform이 잡히는데 이게 다시 시작하는 과정 입니다.
+
+<br>
+
+임대기간 변경![2022-07-28-35임대기간변경](../images/2022-07-28-DHCP Service/2022-07-28-35임대기간변경.PNG)
+
+임대기간을 다시 8일로 변경 하겠습니다.
+
+<br>
+
+주소 재 임대![2022-07-28-37주소재임대](../images/2022-07-28-DHCP Service/2022-07-28-37주소재임대.PNG)
+
+ipconfig /release      ipconfig/renew로 재임대 해주시면 됩니다.
+
+<br>
+
+재 임대 확인 ipconfig /all![2022-07-28-38재임대확인](../images/2022-07-28-DHCP Service/2022-07-28-38재임대확인.PNG)
+
+<br>
+
+수동 갱신 ipconfig /renew![2022-07-28-39수동갱신](../images/2022-07-28-DHCP Service/2022-07-28-39수동갱신.PNG)
+
+<br>
+
+Wire Shark 확인![2022-07-28-40수동갱신확인](../images/2022-07-28-DHCP Service/2022-07-28-40수동갱신확인.PNG)
+
+Client에서 수동 갱신 후 Server에서 Wire Shark를 확인 해 보시면 Request Ack가 확인 가능 합니다.
 
 <br>
 
