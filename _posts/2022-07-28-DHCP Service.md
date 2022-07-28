@@ -1,17 +1,3 @@
----
-title : DHCP Service
-
-categories : 
-- IT
-
-tag : 
-- [IT,DHCP Service]
-
-toc : true
----
-
-
-
 # DHCP Service
 
 <br>
