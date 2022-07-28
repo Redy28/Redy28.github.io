@@ -144,7 +144,7 @@ Wire Shark 확인![2022-07-28-18와이어샤크확인](../images/2022-07-28-DHCP
 
 ![2022-07-28-19와이어샤크내용](../images/2022-07-28-DHCP Service/2022-07-28-19와이어샤크내용.PNG)
 
-Wire Shark를 보면 Discover, Offer, Request, Ack가 보이는데 이것들은 DHCP 메시지 입니다. 
+Wire Shark를 보면 Discover, Offer, Request, Ack가 보이는데 이것들은 DHCP 메시지 입니다. (주소 할당 순서)
 
 동작 방식은 위의 사진대로 Client가 IP주소를 Server에 요청하면 Server가 응답하며 IP주소를 주는 방식 입니다.
 
