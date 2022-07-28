@@ -186,3 +186,67 @@ Server에서 사용 요청한 172.16.0.50를 승인을 해주고
 
 <br>
 
+<br>
+
+<br>
+
+###  DHCP 임대기간 
+
+<br>
+
+현재 임대시간 확인![2022-07-28-26임대기간확인ipconfig all](../images/2022-07-28-DHCP Service/2022-07-28-26임대기간확인ipconfig all.PNG)
+
+Client에서 ipconfig /all로 확인
+
+<br>
+
+Server에서 lease time 2분으로 변경![2022-07-28-25임대기간변경](../images/2022-07-28-DHCP Service/2022-07-28-25임대기간변경.PNG)
+
+<br>
+
+주소 임대 해제![2022-07-28-28릴리즈l](../images/2022-07-28-DHCP Service/2022-07-28-28릴리즈l.PNG)
+
+<br>
+
+주소 재임대![2022-07-28-27renewl](../images/2022-07-28-DHCP Service/2022-07-28-27renewl.PNG)
+
+![2022-07-28-29재확인](../images/2022-07-28-DHCP Service/2022-07-28-29재확인.PNG)
+
+주소를 재임대 하면 임대 기간이 2분으로 바뀐것이 확인 가능 합니다.
+
+<br>
+
+Wire Shark 확인![2022-07-28-30와이어샤크로확인](../images/2022-07-28-DHCP Service/2022-07-28-30와이어샤크로확인.PNG)
+
+Request -> Ack가 2분 간격으로 이뤄지는데 계속 갱신이 되는 과정이 잡 Wire Shark에 나타난 부분 입니다.
+
+<br>
+
+DHCP 작업중지![2022-07-28-31일시중지](../images/2022-07-28-DHCP Service/2022-07-28-31일시중지.PNG)
+
+일시중지 를 한번 해보고 Wire Shark를 보겠습니다.
+
+<br>
+
+Wire Shark 확인![2022-07-28-32와이어샤크확인](../images/2022-07-28-DHCP Service/2022-07-28-32와이어샤크확인.PNG)
+
+계속 renewal을 시도 하다가 rebinding time 임대해제 된 모습 입니다.
+
+<br>
+
+Client 확인![2022-07-28-33CMD확인](../images/2022-07-28-DHCP Service/2022-07-28-33CMD확인.PNG)
+
+APIPA - Bclass의 bogon IP주소로 설정이 된 모습 입니다.
+
+<br>
+
+filter를 해제하고 Wire Shark를 다시 보겠습니다.![2022-07-28-34필터해제와이어샤크](../images/2022-07-28-DHCP Service/2022-07-28-34필터해제와이어샤크.PNG)
+
+Gratuitous ARP가 보입니다.
+
+Gratuitous ARP는 APIPA 겹치는것 또는 일반적으로 컴퓨터 시작시 IP주소 중복 체크를 합니다.
+
+<br>
+
+
+
