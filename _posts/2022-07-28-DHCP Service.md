@@ -1,8 +1,3 @@
----
-categories : IT
-tag : [IT,DHCP Service]
----
-
 # DHCP Service
 
 <br>
@@ -30,6 +25,8 @@ win + r 을 누르고 ncpa.cpl을 누르고 속성에 들어 가시면 나오는
 중간에 Autoconfiguration이 보이는데 이것은 주소를 서버로 부터 부여받지 못하는 경우 통신을 위해 자동으로 입력되는 주소 입니다.
 
  <br>
+
+###### APIPA : B class 의 bogon IP주소 
 
 
 
