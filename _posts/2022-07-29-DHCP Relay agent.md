@@ -64,4 +64,54 @@ DHCP Relay agent 설정 2
 
 <br>
 
-DHCP Relay agent 설정 3
+DHCP Relay agent 설정 3![2022-07-29-13에이전트3](../images/2022-07-29-DHCP Relay agent/2022-07-29-13에이전트3.png)
+
+새 인터페이스 선택
+
+<br>
+
+DHCP Relay agent 설정 4![2022-07-29-14에이전트4](../images/2022-07-29-DHCP Relay agent/2022-07-29-14에이전트4.png)
+
+이 설정은 discover 수신 전달할 영역을 설정하는 것이기 때문에 아무거나 선택 하시면 안되고 discover에 맞는 영역을 선택 해 주셔야 합니다.
+
+<br>
+
+DHCP Relay agent 설정 5![2022-07-29-15에이전트5](../images/2022-07-29-DHCP Relay agent/2022-07-29-15에이전트5.png)
+
+DHCP Server IP주소를 넣어 주시면 됩니다.
+
+<br>
+
+Wire Shark 확인
+
+
+
+Wire Shark를 2개 켜주시면 됩니다.![2022-07-29-16와이어샤크](../images/2022-07-29-DHCP Relay agent/2022-07-29-16와이어샤크.png)
+
+<br>
+
+Wire Shark 확인![2022-07-29-18와이어샤크 (1)](../images/2022-07-29-DHCP Relay agent/2022-07-29-18와이어샤크 (1).PNG)
+
+![2022-07-29-19와이어샤크 (2)](../images/2022-07-29-DHCP Relay agent/2022-07-29-19와이어샤크 (2).PNG)
+
+Discover, Offer, Request, Ack 모두 잘 잡혔습니다.
+
+DHCP가 정상적으로 작동 했다는 뜻입니다.
+
+<br>
+
+Wire Shark를 2개를 킨 이유는 Relay agent가 있고 없고의 차이를 보기 위해서 입니다.
+
+![2022-07-29-20와이어샤크](../images/2022-07-29-DHCP Relay agent/2022-07-29-20와이어샤크.PNG)
+
+왼쪽은 Relay agent가 안 잡힌 모습
+
+오른쪽은 Relay agent가 잡힌 모습 입니다.
+
+이것을 통해서 Relay agent의 역할을 알 수 있습니다.
+
+offer의 기준은 discover 의 relayagent IP address 와 NA  가 같은 
+
+범위를 찾아서 offer 한다. 라고 할 수 있겠습니다.
+
+<br>
