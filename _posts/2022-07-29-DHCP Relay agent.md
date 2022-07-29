@@ -36,5 +36,11 @@ Client에서 조원들의 Client와 통신이 되는지 확인 합니다.
 
 <br>
 
+DHCP Server에서 DHCP 생성![2022-07-29-09dhcp설정](../images/2022-07-29-DHCP Relay agent/2022-07-29-09dhcp설정.png)
+
+범위는 각자 192.168.x.50 ~ 60으로 공통적으로 설정 하였습니다.
+
+<br>
+
 
 
