@@ -26,7 +26,19 @@ DHCP 재시작![2022-07-29-06데몬재시작2](../images/2022-07-29-LinuxDHCP/20
 
 <br>
 
+Client에서 확인![2022-07-29-07xp리뉴](../images/2022-07-29-LinuxDHCP/2022-07-29-07xp리뉴.PNG)
 
+주소를 제대로 받은 모습이 확인 가능 합니다.
+
+<br>
+
+자세히 확인![2022-07-29-08xp확인](../images/2022-07-29-LinuxDHCP/2022-07-29-08xp확인.PNG)
+
+DHCP Server에 Linux IP주소가 들어가 있습니다.
+
+Linux Server에서 제대로 DHCP를 받아온 모습 입니다.
+
+<br>
 
 
 
