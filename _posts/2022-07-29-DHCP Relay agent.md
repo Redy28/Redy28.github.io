@@ -42,5 +42,9 @@ DHCP Server에서 DHCP 생성![2022-07-29-09dhcp설정](../images/2022-07-29-DHC
 
 <br>
 
+DNS 설정![2022-07-29-10dhcp설정2](../images/2022-07-29-DHCP Relay agent/2022-07-29-10dhcp설정2.png)
 
+범위옵션 에서 DNS서버로 들어가서 DNS 주소를 추가 해 주도록 합니다.
+
+<br>
 
