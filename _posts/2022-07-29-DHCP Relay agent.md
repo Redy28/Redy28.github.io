@@ -48,3 +48,20 @@ DNS 설정![2022-07-29-10dhcp설정2](../images/2022-07-29-DHCP Relay agent/2022
 
 <br>
 
+DHCP Relay agent 설정 1![2022-07-29-11에이전트1](../images/2022-07-29-DHCP Relay agent/2022-07-29-11에이전트1.png)
+
+Router PC에서 일반 > 우클릭 > 새 라우팅 프로토콜
+
+DHCP 릴레이 에이전트 생성 누르고 확인
+
+<br>
+
+DHCP Relay agent 설정 2
+
+![2022-07-29-12에이전트2](../images/2022-07-29-DHCP Relay agent/2022-07-29-12에이전트2.png)
+
+왼쪽에 DHCP 릴레이 에이전트 생성된거 확인
+
+<br>
+
+DHCP Relay agent 설정 3
