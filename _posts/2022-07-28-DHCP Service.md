@@ -290,7 +290,7 @@ Client에서 수동 갱신 후 Server에서 Wire Shark를 확인 해 보시면 R
 
 <br>
 
-### DHCP 임대주소가 중복되는경우
+### DHCP 서버에 임대받은주소가 중복되는경우(Client)
 
 구상도![2022-07-28-45디클라인구상도](../images/2022-07-28-DHCP Service/2022-07-28-45디클라인구상도.PNG)
 
@@ -343,3 +343,44 @@ Server에서 예약 생성![2022-07-28-48예약생성](../images/2022-07-28-DHCP
 Client에서 확인![2022-07-28-49리뉴](../images/2022-07-28-DHCP Service/2022-07-28-49리뉴.PNG)
 
 ipconfig /renew로 재임대 해보면 IP주소가 바뀐 모습이 보입니다.
+
+<br>
+
+<br>
+
+<br>
+
+### 임대요청 받는 주소를 이미 임대해서 D주소가 중복되는경우 (Server)
+
+<br>
+
+현재 주소 임대 상황![2022-07-28-51주소임대상황](../images/2022-07-28-DHCP Service/2022-07-28-51주소임대상황.PNG)
+
+<br>
+
+xp Client 네트워크 연결 해제![2022-07-28-52xp네트워크연결해제](../images/2022-07-28-DHCP Service/2022-07-28-52xp네트워크연결해제.PNG)
+
+<br>
+
+xp Client에서 레지스트리 편집기 열기![2022-07-28-53regedit](../images/2022-07-28-DHCP Service/2022-07-28-53regedit.PNG)
+
+<br>
+
+파일 열기![2022-07-28-54regedit2](../images/2022-07-28-DHCP Service/2022-07-28-54regedit2.PNG)
+
+HKEY_LOCAL_MACHINE > System > CurrentControlSet > Services > Tcpip > Parameters > Interfaces > <Adapter GUID>
+
+<br>
+
+주소 변경![2022-07-28-55regedit3](../images/2022-07-28-DHCP Service/2022-07-28-55regedit3.PNG)
+
+
+
+<br>
+
+Server에서 Wireshark 확인![2022-07-28-56와이어샤크](../images/2022-07-28-DHCP Service/2022-07-28-56와이어샤크.PNG)
+
+Client에서 IP주소가 중복 될 때는 Decline이 Server에서 IP주소가 중복 될 때는 NAK가 나오는 것을 알 수 있습니다.
+
+<br>
+
