@@ -1,5 +1,15 @@
 # HTTP Service
 
+<br>
+
+구상도
+
+<br>
+
+### 웹서버 기본문서 index.html 만들기
+
+<br>
+
 httpd 설치
 
 ![2022-08-02-01httpd설치](../images/2022-08-02-HTTP Service/2022-08-02-01httpd설치.PNG)
