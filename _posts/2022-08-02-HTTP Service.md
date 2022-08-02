@@ -1,2 +1,43 @@
 # HTTP Service
 
+httpd 설치
+
+![2022-08-02-01httpd설치](../images/2022-08-02-HTTP Service/2022-08-02-01httpd설치.PNG)
+
+<br>
+
+httpd 시작
+
+![2022-08-02-03httpd시작](../images/2022-08-02-HTTP Service/2022-08-02-03httpd시작.PNG)
+
+<br>
+
+httpd Test
+
+![2022-08-02-02httpd설치확인](../images/2022-08-02-HTTP Service/2022-08-02-02httpd설치확인.PNG)
+
+<br>
+
+httpd 상태확인
+
+![2022-08-02-04httpd상태확인](../images/2022-08-02-HTTP Service/2022-08-02-04httpd상태확인.PNG)
+
+<br>
+
+web server 기본문서 만들기 1
+
+![2022-08-02-05웹서버구축1](../images/2022-08-02-HTTP Service/2022-08-02-05웹서버구축1.PNG)
+
+<br>
+
+web server 기본문서 만들기 2
+
+![2022-08-02-06웹서버구축2](../images/2022-08-02-HTTP Service/2022-08-02-06웹서버구축2.PNG)
+
+<br>
+
+web server 기본문서 Test
+
+![2022-08-02-07웹서버구축3](../images/2022-08-02-HTTP Service/2022-08-02-07웹서버구축3.PNG)
+
+<br>
