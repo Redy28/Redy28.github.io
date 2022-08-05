@@ -72,3 +72,37 @@ Client에서 확인
 
 <br>
 
+이러한 기능을 가진 java script와  J Query는 CSS(Client Side Script)라고 불리며 WEB Browser가 해석하여 결과를 보여주는 방식이다.
+
+<br>
+
+<br>
+
+<br>
+
+### SSS(Server Side Script)
+
+서버가 해석하여 결과를  html 을 통해서 알려주는 방식 입니다.
+
+SSS중 하나인 php의 일부분만 보여 드리겠습니다.
+
+<br>
+
+php 파일 만들기
+
+![2022-08-05-17php파일만들기](../images/2022-08-05-Web Language/2022-08-05-17php파일만들기.PNG)
+
+<br>
+
+내용 추가
+
+![2022-08-05-16php](../images/2022-08-05-Web Language/2022-08-05-16php.PNG)
+
+<br>
+
+Client에서 확인
+
+![2022-08-05-18php](../images/2022-08-05-Web Language/2022-08-05-18php.PNG)
+
+이렇게 Server가 결과를 해석하여 보이는게 SSS 입니다.
+
