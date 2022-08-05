@@ -1,5 +1,9 @@
 # Web Authenticaton
 
+<br>
+
+### System Authentication
+
 2008 R2를 Web Server로 사용 하겠습니다.
 
 <br>
@@ -57,6 +61,10 @@ Client에서 확인
 ![2022-08-05-21인증성공](../images/2022-08-05-Web Authenticaton/2022-08-05-21인증성공.PNG)
 
 이렇게 익명 사용자 접근을 방지 하기위해 위처럼 로그인을 한 뒤 접속이 가능 합니다.
+
+<br>
+
+<br>
 
 <br>
 
