@@ -157,3 +157,40 @@ target 에 접속
 ![2022-09-05-27삭제](../images/2022-09-05-iSCSI service/2022-09-05-27삭제.PNG)
 
 <br>
+
+<br>
+
+<br>
+
+##### initiator  디스크로 활용 하기
+
+파티션 생성
+
+![2022-09-05-28f디스크](../images/2022-09-05-iSCSI service/2022-09-05-28f디스크.PNG)
+
+<br>
+
+생성 확인
+
+![2022-09-05-29f디스크확인](../images/2022-09-05-iSCSI service/2022-09-05-29f디스크확인.PNG)
+
+<br>
+
+mkfs
+
+![2022-09-05-30mkfs](../images/2022-09-05-iSCSI service/2022-09-05-30mkfs.PNG)
+
+<br>
+
+mount
+
+![2022-09-05-31마운트](../images/2022-09-05-iSCSI service/2022-09-05-31마운트.PNG)
+
+<br>
+
+<br>
+
+<br>
+
+
+
