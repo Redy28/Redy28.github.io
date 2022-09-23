@@ -4,13 +4,15 @@
 
 ##### ping
 
-![2022-09-21-53ping](C:\Users\home\Desktop\github\깃허브 이미지\2022-09-20-정보수집\2022-09-21-53ping.PNG)
+![2022-09-21-53ping](../images/2022-09-23-ActiveHost Scanning/2022-09-21-53ping.PNG)
 
 <br>
 
 ##### faipScanner.exe
 
-![2022-09-21-47아이피스캐닝](C:\Users\home\Desktop\github\깃허브 이미지\2022-09-20-정보수집\2022-09-21-47아이피스캐닝.PNG)
+![2022-09-21-48nmap](../images/2022-09-23-ActiveHost Scanning/2022-09-21-48nmap.PNG)
+
+![2022-09-21-49nmap](../images/2022-09-23-ActiveHost Scanning/2022-09-21-49nmap.PNG)
 
 <br>
 
@@ -18,7 +20,7 @@
 
 대상 컴퓨터의 Mac 주소 확인 
 
-![2022-09-21-54arping](C:\Users\home\Desktop\github\깃허브 이미지\2022-09-20-정보수집\2022-09-21-54arping.PNG)
+![2022-09-21-54arping](../images/2022-09-23-ActiveHost Scanning/2022-09-21-54arping-1663934870343-6.PNG)
 
 <br>
 
@@ -26,7 +28,7 @@
 
 sweeping : 네트워크 내에서 활성화된 시스템을 찾는것
 
-![2022-09-21-55farp](C:\Users\home\Desktop\github\깃허브 이미지\2022-09-20-정보수집\2022-09-21-55farp.PNG)
+![2022-09-21-55farp](../images/2022-09-23-ActiveHost Scanning/2022-09-21-55farp.PNG)
 
 <br>
 
@@ -34,23 +36,23 @@ sweeping : 네트워크 내에서 활성화된 시스템을 찾는것
 
 구상도
 
-![2022-09-21-56구상도](C:\Users\home\Desktop\github\깃허브 이미지\2022-09-20-정보수집\2022-09-21-56구상도.PNG)
+![2022-09-21-56구상도](../images/2022-09-23-ActiveHost Scanning/2022-09-21-56구상도.PNG)
 
 <br>
 
 sP : ping scan  , 로컬네트워크 ,  arp ,  원격네트워크는  icmp
 
-![2022-09-21-48nmap](C:\Users\home\Desktop\github\깃허브 이미지\2022-09-20-정보수집\2022-09-21-48nmap.PNG)
+![2022-09-21-48nmap](../images/2022-09-23-ActiveHost Scanning/2022-09-21-48nmap-1663934884300-9.PNG)
 
-![2022-09-21-49nmap](C:\Users\home\Desktop\github\깃허브 이미지\2022-09-20-정보수집\2022-09-21-49nmap.PNG)
+![2022-09-21-49nmap](../images/2022-09-23-ActiveHost Scanning/2022-09-21-49nmap-1663934886929-11.PNG)
 
 <br>
 
 외부로 ping 보낼때
 
-![2022-09-21-51외부](C:\Users\home\Desktop\github\깃허브 이미지\2022-09-20-정보수집\2022-09-21-51외부.PNG)
+![2022-09-21-51외부](../images/2022-09-23-ActiveHost Scanning/2022-09-21-51외부.PNG)
 
-![2022-09-21-52외부icmp](C:\Users\home\Desktop\github\깃허브 이미지\2022-09-20-정보수집\2022-09-21-52외부icmp.PNG)
+![2022-09-21-52외부icmp](../images/2022-09-23-ActiveHost Scanning/2022-09-21-52외부icmp.PNG)
 
 내부에서 ping을 할때는arp로 하지만 외부는 icmp로 확인한다.
 
@@ -192,4 +194,3 @@ WireShark 확인
   ![2022-09-21-75sx](../images/2022-09-23-ActiveHost Scanning/2022-09-21-75sx.PNG)
 
   <br>
-
