@@ -76,3 +76,37 @@ vi /etcc/named.conf에 들어가서 설정 변경
 
 <br>
 
+-sU : UDP Scan
+
+![2022-09-21-59udp](../images/2022-09-23-ActiveHost Scanning/2022-09-21-59udp.PNG)
+
+<br>
+
+WireShark 확인
+
+![2022-09-21-60udp](../images/2022-09-23-ActiveHost Scanning/2022-09-21-60udp.PNG)
+
+![2022-09-21-61udp53](../images/2022-09-23-ActiveHost Scanning/2022-09-21-61udp53.PNG)
+
+![2022-09-21-62udp54](../images/2022-09-23-ActiveHost Scanning/2022-09-21-62udp54.PNG)
+
+<br>
+
+-sT 옵션 tcp port
+
+![2022-09-21-63tcp22](../images/2022-09-23-ActiveHost Scanning/2022-09-21-63tcp22.PNG)
+
+<br>
+
+WireShark 확인
+
+![2022-09-21-64tcp22](../images/2022-09-23-ActiveHost Scanning/2022-09-21-64tcp22.PNG)
+
+열려있는 22번 port는 3way-handshake 모습이 보이지만 tcp port가 아닌 100번은 바로 닫히는 모습 입니다.
+
+<br>
+
+
+
+
+
