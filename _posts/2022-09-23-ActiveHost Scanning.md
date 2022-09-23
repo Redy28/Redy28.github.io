@@ -78,6 +78,11 @@ vi /etcc/named.conf에 들어가서 설정 변경
 
 -sU : UDP Scan
 
+- UDP Packet을 이용해 대상 시스템 Port Scan 
+
+- Close Port → ICMP Destination Unreachable 응답 
+- - Open Port → 응답 없음
+
 ![2022-09-21-59udp](../images/2022-09-23-ActiveHost Scanning/2022-09-21-59udp.PNG)
 
 <br>
@@ -92,7 +97,7 @@ WireShark 확인
 
 <br>
 
-TCP Connect Scanning (Full Connection Scan)
+-sT : TCP Connect Scanning (Full Connection Scan)
 
 - 3 Way-Handshaking을 통해 대상 시스템의 포트 상태 확인 
 
@@ -111,7 +116,7 @@ WireShark 확인
 
 <br>
 
-SYN Stealth Scanning (Half Open Scan)
+-sS  : Syn Stealth Scan
 
 - 포트가 열려있을 경우 S/A Packet을 받은 후 RST Packet을 보내 연결을 끊는 방법 
 
@@ -129,7 +134,7 @@ WireShark 확인
 
 <br>
 
-FIN Scanning
+-sF : FIN Scan
 
 - RST Flag 가 설정된 Packet을 확인 함으로써 포트가 닫혔음을 판단함 
 
@@ -147,4 +152,44 @@ WireShark 확인
 ![2022-09-21-70sf](../images/2022-09-23-ActiveHost Scanning/2022-09-21-70sf.PNG)
 
 <br>
+
+-sN  : NULL Scan 
+
+- 모든 Flag를 설정하지 않고 Scan 함 
+
+- IDS 를 회피할 가능성이 높지만, 목표 시스템이 UNIX/Linux 플랫폼일 경우만 가능 
+
+- Open/Filter/오류의 결과가 불분명 함
+
+![2022-09-21-71sn](../images/2022-09-23-ActiveHost Scanning/2022-09-21-71sn.PNG)
+
+<br>
+
+WireShark 확인
+
+![2022-09-21-72sn](../images/2022-09-23-ActiveHost Scanning/2022-09-21-72sn.PNG)
+
+![2022-09-21-73sn](../images/2022-09-23-ActiveHost Scanning/2022-09-21-73sn.PNG)
+
+<br>
+
+-sX : X-MAS
+
+- FIN, PSH, URG Flag 를 동시에 설정하여 scan 함 
+
+- IDS 를 회피할 가능성이 높지만, 목표 시스템이 UNIX/Linux 플랫폼일 경우만 가능 
+
+- Open/Filter/오류의 결과가 불분명 함
+
+  ![2022-09-21-74sx](../images/2022-09-23-ActiveHost Scanning/2022-09-21-74sx.PNG)
+
+  <br>
+
+  WireShark 확인
+
+  ![2022-09-21-76sx](../images/2022-09-23-ActiveHost Scanning/2022-09-21-76sx.PNG)
+
+  ![2022-09-21-75sx](../images/2022-09-23-ActiveHost Scanning/2022-09-21-75sx.PNG)
+
+  <br>
 
