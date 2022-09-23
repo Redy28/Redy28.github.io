@@ -282,6 +282,7 @@ MariDB 경로 수정
 
 ```
 vi /etc/my.cnf
+
 datadir=/iscsi_01/data/mysql
 ```
 
@@ -291,6 +292,14 @@ datadir=/iscsi_01/data/mysql
 
 ```
 cp -Rv /var/lib/mysql /iscsi_01/data/
+```
+
+<br>
+
+소유권 변경
+
+```
+chown -R mysql:mysql /iscsi_01/data/mysql
 ```
 
 <br>
