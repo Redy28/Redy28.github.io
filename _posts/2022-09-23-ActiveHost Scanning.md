@@ -247,3 +247,21 @@ kali -> xp ping check
 
 <br>
 
+kali -> xp hping check
+
+![2022-09-21-88아이들G](../images/2022-09-23-ActiveHost Scanning/2022-09-21-88아이들G.jpg)
+
+<br>
+
+WireShark
+
+![2022-09-21-89아이들G](../images/2022-09-23-ActiveHost Scanning/2022-09-21-89아이들G.jpg)
+
+![2022-09-21-90아이들](../images/2022-09-23-ActiveHost Scanning/2022-09-21-90아이들.jpg)
+
+![2022-09-21-91아이들](../images/2022-09-23-ActiveHost Scanning/2022-09-21-91아이들.jpg)
+
+응답을 할때마다 identification, Dst port가 1씩 증가하는 모습이 보입니다. 여기서 window만 사용해야 하는 이유가 나오는데 window는 무조건 1씩 증가하지만 linux는 랜덤으로 값이 증가하기 때문에 보기가 힘듭니다.
+
+<br>
+
