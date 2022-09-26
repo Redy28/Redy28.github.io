@@ -194,3 +194,56 @@ WireShark 확인
   ![2022-09-21-75sx](../images/2022-09-23-ActiveHost Scanning/2022-09-21-75sx.PNG)
 
   <br>
+
+TCP scan 시 방화벽 유무 
+
+![2022-09-21-79tcp.PNG](../images/2022-09-23-ActiveHost Scanning/2022-09-21-79tcp.PNG.jpg)
+
+1번째는 방화벽 설정이 되지 않은 상태이고 2번째는 방화벽이 설정된 상태 입니다.
+
+<br>
+
+![2022-09-21-80tcp.PNG](../images/2022-09-23-ActiveHost Scanning/2022-09-21-80tcp.PNG.jpg)
+
+![2022-09-21-81tcp.PNG](../images/2022-09-23-ActiveHost Scanning/2022-09-21-81tcp.PNG.jpg)
+
+TCP 22,100번의 사진 입니다.
+
+22번은 3wayhand-shake가 이뤄지는 모습이 보이고 100번은 22번 과 결과가 다른 것을 알 수 있습니다.
+
+<br>
+
+UDP scan 시 방화벽 유무 
+
+![2022-09-21-82udp.PNG](../images/2022-09-23-ActiveHost Scanning/2022-09-21-82udp.PNG.jpg)
+
+![2022-09-21-83udp.PNG](../images/2022-09-23-ActiveHost Scanning/2022-09-21-83udp.PNG.jpg)
+
+![2022-09-21-84udp.PNG](../images/2022-09-23-ActiveHost Scanning/2022-09-21-84udp.PNG.jpg)
+
+nmap은 udp, tcp에서 close port 응답은 Port Unreachable으로 하도록 약속이 되어있는 것이 기본 약속 입니다.
+
+하지만 지금 iptables로 방화벽을 열고 했을 경우에는 Port Unreachable이 아닌 다른 모습으로 확인이 되고 있습니다.
+
+![2022-09-21-85udp.PNG](../images/2022-09-23-ActiveHost Scanning/2022-09-21-85udp.PNG.jpg)
+
+iptables 설정에 prohibited가 설정 되어 udp 54번 port가 영향을 받아 마지막에 Port Unreachable이 아닌 prohibited가 나오게 되는 것입니다.
+
+<br>
+
+##### IDLE Scanning
+
+<br>
+
+구상도
+
+![2022-09-21-86아이들G](../images/2022-09-23-ActiveHost Scanning/2022-09-21-86아이들G.jpg)
+
+<br>
+
+kali -> xp ping check
+
+![2022-09-21-87아이들G](../images/2022-09-23-ActiveHost Scanning/2022-09-21-87아이들G.jpg)
+
+<br>
+
