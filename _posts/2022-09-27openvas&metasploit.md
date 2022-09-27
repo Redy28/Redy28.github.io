@@ -122,3 +122,28 @@ CVE에 들어가서 보시면 취약점 번호가 나옵니다.
 
 <br>
 
+search
+
+![2022-09-27-17ms17](../images/2022-09-27openvas&metasploit/2022-09-27-17ms17.jpg)
+
+<br>
+
+OpenVAS를 이용하여 R2 스캔 결과를 확인하고 metasploit을 이용하여 공 격
+
+![2022-09-27-18ms17](../images/2022-09-27openvas&metasploit/2022-09-27-18ms17.jpg)
+
+![2022-09-27-19옵션](../images/2022-09-27openvas&metasploit/2022-09-27-19옵션.jpg)
+
+![2022-09-27-20exploit](../images/2022-09-27openvas&metasploit/2022-09-27-20exploit.jpg)
+
+![2022-09-27-21exploit](../images/2022-09-27openvas&metasploit/2022-09-27-21exploit.jpg)
+
+![2022-09-27-22sir](../images/2022-09-27openvas&metasploit/2022-09-27-22sir.jpg)
+
+![2022-09-27-22mkdir](../images/2022-09-27openvas&metasploit/2022-09-27-22mkdir.jpg)
+
+![2022-09-27-23확인](../images/2022-09-27openvas&metasploit/2022-09-27-23확인.jpg)
+
+현재 인증을 받지 않고 R2 PC에 들어가 제어권을 뺏어온 상황 입니다.
+
+<br>
