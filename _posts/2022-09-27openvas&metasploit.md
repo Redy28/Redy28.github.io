@@ -10,3 +10,59 @@ OpenVAS
 
 <br>
 
+gvm-start
+
+![2022-09-27-01gvmstart](../images/2022-09-27openvas&metasploit/2022-09-27-01gvmstart.jpg)
+
+<br>
+
+login
+
+![2022-09-27-02로그인](../images/2022-09-27openvas&metasploit/2022-09-27-02로그인.jpg)
+
+<br>
+
+configuration -> targets
+
+![2022-09-27-03컨피그타겟](../images/2022-09-27openvas&metasploit/2022-09-27-03컨피그타겟.jpg)
+
+<br>
+
+new target
+
+![2022-09-27-04타겟](../images/2022-09-27openvas&metasploit/2022-09-27-04타겟.jpg)
+
+<br>
+
+target 만들어진거 확인
+
+![2022-09-27-05타겟](../images/2022-09-27openvas&metasploit/2022-09-27-05타겟.jpg)
+
+<br>
+
+configuration -> scan configs
+
+![2022-09-27-06컨피그스캔컨피그](../images/2022-09-27openvas&metasploit/2022-09-27-06컨피그스캔컨피그.jpg)
+
+스캔 방향이나 방법을 정하는 곳 입니다.
+
+<br>
+
+scans -> tasks
+
+![2022-09-27-07scans tasks](../images/2022-09-27openvas&metasploit/2022-09-27-07scans tasks.jpg)
+
+<br>
+
+new tasks
+
+![2022-09-27-08newtasks](../images/2022-09-27openvas&metasploit/2022-09-27-08newtasks.jpg)
+
+<br>
+
+tasks 생성 확인
+
+![2022-09-27-09tasks확인](../images/2022-09-27openvas&metasploit/2022-09-27-09tasks확인.jpg)
+
+<br>
+
