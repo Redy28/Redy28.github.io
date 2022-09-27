@@ -74,6 +74,8 @@ start
 
 ![2022-09-27-10start](../images/2022-09-27openvas&metasploit/2022-09-27-10start.jpg)
 
+취약점 scanning 시작
+
 <br>
 
 scan 완료
@@ -81,6 +83,20 @@ scan 완료
 ![2022-09-27-11완료](../images/2022-09-27openvas&metasploit/2022-09-27-11완료.jpg)
 
 ![2022-09-27-12완료](../images/2022-09-27openvas&metasploit/2022-09-27-12완료.jpg)
+
+<br>
+
+취약점 부분
+
+![2022-09-27-13완료](../images/2022-09-27openvas&metasploit/2022-09-27-13완료.jpg)
+
+CVE에 들어가서 보시면 취약점 번호가 나옵니다.
+
+<br>
+
+같은 취약점이 있는 software
+
+![2022-09-27-14취약점소프트웨어](../images/2022-09-27openvas&metasploit/2022-09-27-14취약점소프트웨어.jpg)
 
 <br>
 
@@ -95,6 +111,14 @@ scan 완료
 - 단순 공격 도구라기보다 복잡한 작업들을 자동화하는데 필요한 인프라 구조를 제공하는 프레임워크
 - 2009년 rapid7에 인수된 이 후 2개의 상용 제품인 express와 pro 발표
 - Windows / Linux 플랫폼에서 사용 가능
+
+<br>
+
+실행
+
+![2022-09-27-15메타](../images/2022-09-27openvas&metasploit/2022-09-27-15메타.jpg)
+
+![2022-09-27-16메타](../images/2022-09-27openvas&metasploit/2022-09-27-16메타.jpg)
 
 <br>
 
