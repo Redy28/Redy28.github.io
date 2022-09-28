@@ -110,5 +110,5 @@ arp spoofing
 
 centOS에서 확인
 
-![2022-09-28-16tail](../images/2022-09-28-arpredirect/2022-09-28-16tail.jpg)
+![2022-09-28-17tail](../images/2022-09-28-arpredirect/2022-09-28-17tail.jpg)
 
