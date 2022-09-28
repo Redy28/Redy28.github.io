@@ -16,10 +16,21 @@
 
 Router 설정
 
-![2022-09-28-01router설정](C:\Users\home\Desktop\github\깃허브 이미지\2022-09-28-arp redirect\2022-09-28-01router설정.jpg)
+![2022-09-28-02라우터](../images/2022-09-28-arpredirect/2022-09-28-02라우터.jpg)
 
 Router interface와 P.A.T static NAT를 설정해 줍니다.
 
 <br>
 
- 
+ Router ARP
+
+![2022-09-28-01arp](../images/2022-09-28-arpredirect/2022-09-28-01arp.jpg)
+
+<br>
+
+XP -> 외부 ping
+
+![2022-09-28-03외부로ping](../images/2022-09-28-arpredirect/2022-09-28-03외부로ping.jpg)
+
+<br>
+
