@@ -76,7 +76,7 @@ centOS -> 외부 ping
 
 ![2022-09-28-11설치](../images/2022-09-28-arpredirect/2022-09-28-11설치.jpg)
 
-arpwatch라는 패키지로 arp 변경점을 잡아주는 패키지 입니다.
+arpwatch라는 패키지로 arp 변경점을 모니터링 할 수있는 도구입니다.
 
 <br>
 
