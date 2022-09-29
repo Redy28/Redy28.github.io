@@ -26,7 +26,7 @@ IP Spoofing 목적
 
 구성도
 
-
+![2022-09-29-21](../images/2022-09-29-IPspoofing/2022-09-29-21.jpg)
 
 <br>
 
@@ -100,7 +100,7 @@ MAC주소 확인
 
 <br>
 
-##### TCP Wrapper 우회 공격
+###### TCP Wrapper 우회 공격
 
 mini -> arp초기화
 
