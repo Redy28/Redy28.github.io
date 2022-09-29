@@ -81,3 +81,30 @@ WireShark
 보시면 출발지는 xp인데 MAC주소는 kali로 되어있는 모습입니다.
 
 <br>
+
+##### DNS spoofig
+
+파일생성
+
+![2022-09-29-15파일생성](../images/2022-09-29-ICMPredirect DNS spoofing/2022-09-29-15파일생성.jpg)
+
+![2022-09-29-14내용](../images/2022-09-29-ICMPredirect DNS spoofing/2022-09-29-14내용.jpg)
+
+<br>
+
+dns spoofing
+
+![2022-09-29-16확인](../images/2022-09-29-ICMPredirect DNS spoofing/2022-09-29-16확인.jpg)
+
+<br>
+
+확인
+
+![2022-09-29-17스푸핑확인](../images/2022-09-29-ICMPredirect DNS spoofing/2022-09-29-17스푸핑확인.jpg)
+
+![2022-09-29-18와이어샤크](../images/2022-09-29-ICMPredirect DNS spoofing/2022-09-29-18와이어샤크.jpg)
+
+
+
+
+
