@@ -112,3 +112,27 @@ centOS에서 확인
 
 ![2022-09-28-17tail](../images/2022-09-28-arpredirect/2022-09-28-17tail.jpg)
 
+<br>
+
+<br>
+
+<br>
+
+xp에 xarp 설치
+
+![2022-09-28-18xarp설치](../images/2022-09-28-arpredirect/2022-09-28-18xarp설치.jpg)
+
+<br>
+
+kali에서 arpspoofing
+
+![2022-09-28-19스푸핑](../images/2022-09-28-arpredirect/2022-09-28-19스푸핑.jpg)
+
+<br>
+
+xp에서 확인
+
+![2022-09-28-20xp확인](../images/2022-09-28-arpredirect/2022-09-28-20xp확인.jpg)
+
+xarp는 arp를 탐지해 주는 도구 입니다.
+
