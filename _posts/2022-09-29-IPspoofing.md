@@ -92,3 +92,71 @@ MAC주소 확인
 
 보시면 xp에서 돌아오는 MAC주소가 변경된 모습이 보입니다.
 
+돌아오는 MAC주소가 변경 되니 ssh도 접근 가능해 졌습니다.
+
+<br>
+
+<br>
+
+<br>
+
+##### TCP Wrapper 우회 공격
+
+mini -> arp초기화
+
+![2022-09-29-13arp초기화](../images/2022-09-29-IPspoofing/2022-09-29-13arp초기화.jpg)
+
+<br>
+
+TCP Wrapper 설정
+
+![2022-09-29-11allow](../images/2022-09-29-IPspoofing/2022-09-29-11allow.jpg)
+
+![2022-09-29-12deny](../images/2022-09-29-IPspoofing/2022-09-29-12deny.jpg)
+
+allow, deny중에는 allow가 우선이기 때문에 allow에 ssh 접근할 ip 하나만 허용해 두고 나머지는 모두 deny로 설정 해두겠습니다.
+
+<br>
+
+kali -> 추가주소 제거
+
+![2022-09-29-14ip빼기](../images/2022-09-29-IPspoofing/2022-09-29-14ip빼기.jpg)
+
+<br>
+
+xp에서 putty로 TCP Wrapper확인
+
+![2022-09-29-16ssh](../images/2022-09-29-IPspoofing/2022-09-29-16ssh.jpg)
+
+![2022-09-29-15ssh](../images/2022-09-29-IPspoofing/2022-09-29-15ssh.jpg)
+
+접근 가능
+
+<br>
+
+kali에서 ssh 접근
+
+![2022-09-29-17ssh](../images/2022-09-29-IPspoofing/2022-09-29-17ssh.jpg)
+
+접근 불가
+
+<br>
+
+kali -> ip다시 추가
+
+![2022-09-29-18주소추가](../images/2022-09-29-IPspoofing/2022-09-29-18주소추가.jpg)
+
+<br>
+
+arpspoofing
+
+![2022-09-29-19공격](../images/2022-09-29-IPspoofing/2022-09-29-19공격.jpg)
+
+<br>
+
+mini -> arp확인
+
+![2022-09-29-20arp확인](../images/2022-09-29-IPspoofing/2022-09-29-20arp확인.jpg)
+
+<br>
+
