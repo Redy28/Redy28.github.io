@@ -27,6 +27,12 @@ DHCP 취약점
 
 <br>
 
+구성도
+
+
+
+<br>
+
 ##### DHCP 설치
 
 2003 -> dhcp 설치
@@ -51,6 +57,8 @@ DHCP 취약점
 
 ##### DHCP startvation
 
+kali2022 ver은 오류가 있어서 kali2016 ver으로 진행 하겠습니다.
+
 kali -> dhcpx 설치
 
 ![2022-10-04-06DHCPX](../images/2022-10-04-DHCPattack/2022-10-04-06DHCPX.jpg)
@@ -66,6 +74,44 @@ kali -> dhcpx 실행
 xp -> 확인
 
 ![2022-10-04-09DHCPX](../images/2022-10-04-DHCPattack/2022-10-04-09DHCPX.jpg)
+
+주소를 재임대 했을때 실패하면 성공 입니다.
+
+이미 재임대를 받을 주소를 kali에서 다 가져간 상태이기 때문에 주소 재임대에 실패하는 것 입니다.
+
+<br>
+
+<br>
+
+<br>
+
+##### DHCP Spoofing 
+
+ettercap 을 이용한 dhcp spoofing
+
+![2022-10-04-10etthercap](../images/2022-10-04-DHCPattack/2022-10-04-10etthercap.jpg)
+
+xp -> 확인
+
+![2022-10-04-11etthercap](../images/2022-10-04-DHCPattack/2022-10-04-11etthercap.jpg)
+
+![2022-10-04-12etthercap](../images/2022-10-04-DHCPattack/2022-10-04-12etthercap.jpg)
+
+ipconfig /all로 확인해 보시면 DHCP Server와 Default Gateway가 kali의 주소로 들어가 있는 모습이 보입니다.
+
+<br>
+
+xp -> ping 8.8.8.8
+
+fragrouter
+
+![2022-10-04-13fragrouter](../images/2022-10-04-DHCPattack/2022-10-04-13fragrouter.jpg)
+
+![2022-10-04-14fragrouter](../images/2022-10-04-DHCPattack/2022-10-04-14fragrouter.jpg)
+
+WireShark로 보시면 도착지 주소의 MAC주소가 kali로 변경되어 있는 모습이 보입니다. 
+
+8.8.8.8의 MAC주소가 아닌 kali의 MAC주소로 되어 있는 부분을 확인 하셔야 합니다.
 
 <br>
 
