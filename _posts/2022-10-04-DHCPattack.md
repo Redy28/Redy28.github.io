@@ -22,8 +22,36 @@ DHCP 취약점
 
  DHCP Attack 분류 
 
-- DHCP Starvation → DHCP Server의 Pool을 모두 소모시키는 공격 → Dos Attack 
-- DHCP Spoofing → DHCP Client에게 조작된 네트워크 정보를 전달하는 공격
+- DHCP Starvation → DHCP Server의 Pool을 모두 소모시키는 공격 → Dos Attack (가용성 공격)
+- DHCP Spoofing → DHCP Client에게 조작된 네트워크 정보를 전달하는 공격 (무결성 공격)
+
+<br>
+
+##### DHCP 설치
+
+![2022-10-04-01dhcp](../images/2022-10-04-DHCPattack/2022-10-04-01dhcp.jpg)
+
+![2022-10-04-02dhcp](../images/2022-10-04-DHCPattack/2022-10-04-02dhcp.jpg)
+
+![2022-10-04-03dhcp](../images/2022-10-04-DHCPattack/2022-10-04-03dhcp.jpg)
+
+![2022-10-04-04dhcp](../images/2022-10-04-DHCPattack/2022-10-04-04dhcp.jpg)
+
+![2022-10-04-05dhcp](../images/2022-10-04-DHCPattack/2022-10-04-05dhcp.jpg)
+
+마지막에 XP에서 확인해 주시면 됩니다.
+
+<br>
+
+<br>
+
+<br>
+
+##### DHCP startvation
+
+dhcpx 설치
+
+![2022-10-04-06DHCPX](../images/2022-10-04-DHCPattack/2022-10-04-06DHCPX.jpg)
 
 <br>
 
