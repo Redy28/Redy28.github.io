@@ -125,6 +125,12 @@ WireShark
 
 <br>
 
+redhat9 -> HTTP 확인
+
+![2022-10-04-13HTTP](../images/2022-10-04DenialofService/2022-10-04-13HTTP.jpg)
+
+<br>
+
 보안
 
 패킷의 출발지와 목적지 주소가 같을 경우 필터링하여 차단 함
