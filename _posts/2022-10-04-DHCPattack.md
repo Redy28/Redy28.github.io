@@ -29,7 +29,7 @@ DHCP 취약점
 
 구성도
 
-
+![2022-10-04-15구성도](../images/2022-10-04-DHCPattack/2022-10-04-15구성도.jpg)
 
 <br>
 
@@ -103,7 +103,7 @@ ipconfig /all로 확인해 보시면 DHCP Server와 Default Gateway가 kali의 �
 
 xp -> ping 8.8.8.8
 
-fragrouter
+kali -> fragrouter
 
 ![2022-10-04-13fragrouter](../images/2022-10-04-DHCPattack/2022-10-04-13fragrouter.jpg)
 
@@ -114,4 +114,6 @@ WireShark로 보시면 도착지 주소의 MAC주소가 kali로 변경되어 있
 8.8.8.8의 MAC주소가 아닌 kali의 MAC주소로 되어 있는 부분을 확인 하셔야 합니다.
 
 <br>
+
+sniffer (wireshark) 로 sniffing  
 
