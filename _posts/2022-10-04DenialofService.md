@@ -20,6 +20,8 @@
 
 ##### Ping of Death (죽음의 핑) 
 
+icmp flooding이라고 도 한다.
+
 - 시스템 리소스 공격 → 운영체제의 오작동 유발, 메모리 부하, CPU 부하 
 - 초기에 사용된 ICMP를 이용하는 DoS 공격
 
@@ -47,6 +49,8 @@ xp -> cpu 점유율 상태
 kali -> 공격
 
 ![2022-10-04-04kali공격](../images/2022-10-04DenialofService/2022-10-04-04kali공격.jpg)
+
+![2022-10-04-05공격명령어](../images/2022-10-04DenialofService/2022-10-04-05공격명령어.jpg)
 
 <br>
 
