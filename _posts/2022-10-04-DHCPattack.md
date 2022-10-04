@@ -115,5 +115,5 @@ WireShark로 보시면 도착지 주소의 MAC주소가 kali로 변경되어 있
 
 <br>
 
-sniffer (wireshark) 로 sniffing  
+
 
