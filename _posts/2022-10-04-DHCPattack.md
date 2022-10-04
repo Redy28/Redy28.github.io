@@ -29,6 +29,8 @@ DHCP 취약점
 
 ##### DHCP 설치
 
+2003 -> dhcp 설치
+
 ![2022-10-04-01dhcp](../images/2022-10-04-DHCPattack/2022-10-04-01dhcp.jpg)
 
 ![2022-10-04-02dhcp](../images/2022-10-04-DHCPattack/2022-10-04-02dhcp.jpg)
@@ -49,9 +51,21 @@ DHCP 취약점
 
 ##### DHCP startvation
 
-dhcpx 설치
+kali -> dhcpx 설치
 
 ![2022-10-04-06DHCPX](../images/2022-10-04-DHCPattack/2022-10-04-06DHCPX.jpg)
+
+<br>
+
+kali -> dhcpx 실행
+
+![2022-10-04-07DHCPX](../images/2022-10-04-DHCPattack/2022-10-04-07DHCPX.jpg)
+
+<br>
+
+xp -> 확인
+
+![2022-10-04-09DHCPX](../images/2022-10-04-DHCPattack/2022-10-04-09DHCPX.jpg)
 
 <br>
 
