@@ -194,3 +194,109 @@ xp -> WireShark 확인
   - no ip directed-broadcast 
 -  Host에서 Direct Broadcast 패킷 수신 차단
 -  목적지가 Broadcast IP로 전송된 ICMP 패킷에 대한 응답을 하지 않도록 설정
+
+<br>
+
+<br>
+
+<br>
+
+#####  TCP SYN Flooding
+
+- TCP 가 데이터를 보내기 전에 연결을 먼저 맺어야 하는 연결지향성을 이용한 방법 
+
+- Attacker 는 Victim 에 Source IP Address 를 Spoofing 하여 SYN 패킷을 특정 포트로 전송하여 해당 포트 의 대기 큐(Backlog Queue) 를 가득 차게 하여 해당 포트에 들어오는 정상적인 연결요청을 큐가 빌 때까지 무시하도록 함 
+
+- UDP Flooding 이 주류를 이루기 이전에 많이 사용되던 방식 
+- 시스템 부하 → 메모리 부하(프로그램의 Backlog Queue)
+
+<br>
+
+공격원리 
+
+- 출발지 IP를 Random하게 변조하여 연결요청(SYN)을 전달 함 
+- 공격 대상의 Backlog Queue가 가득 차서 정상 클라이언트의 연결 정보를 저장 하지 못하게 됨
+
+<br>
+
+구성도
+
+![2022-10-04-18구성도](../images/2022-10-04DenialofService/2022-10-04-18구성도.jpg)
+
+<br>
+
+centOS 설정변경
+
+![2022-10-04-20설정](../images/2022-10-04DenialofService/2022-10-04-20설정.jpg)
+
+![2022-10-04-19설정](../images/2022-10-04DenialofService/2022-10-04-19설정.jpg)
+
+centOS는 기본적으로  TCP SYN Flooding이 막혀있기 때문에 막혀있는 부분을 풀고 공격이 가도록 하는 작업 입니다.
+
+<br>
+
+kali -> 공격
+
+![2022-10-04-21공격](../images/2022-10-04DenialofService/2022-10-04-21공격-1664960172143-11.jpg)
+
+<br>
+
+WireShark
+
+![2022-10-04-23확인](../images/2022-10-04DenialofService/2022-10-04-23확인.jpg)
+
+<br>
+
+centOS
+
+![2022-10-04-22확인](../images/2022-10-04DenialofService/2022-10-04-22확인.jpg)
+
+<br>
+
+Host PC에서 확인
+
+![2022-10-04-24확인](../images/2022-10-04DenialofService/2022-10-04-24확인.jpg)
+
+<br>
+
+보안
+
+- 시스템 최적화 
+  - Backlog Queue 사이즈 증가, SYN_RCVD 대기시간 단축, Registry 설정 
+- syncookie 기능 활성화 
+- 보안 솔루션을 통한 방어
+
+<br>
+
+#####  TCP Connect Flood
+
+- TCP 3-way Handshake 과정을 과도하게 유발시켜 서비스에 과부하를 발생시키는 공격 
+
+- 공격 트래픽을 받는 서버는 정상적인 TCP 세션을 지속적으로 세션 연결을 하여 세션 처리 자원을 고갈시 켜 정상적인 세션 연결을 더 이상 수행할 수 없게 되어 이 후 정상적으로 접근하는 사용자가 더 이상 서비 스를 사용할 없게 됨 
+- 형태: 연결 유지, 연결/해제 반복, 연결 이후 정상적인 통신처럼 트래픽을 발송 
+- 정상적인 TCP 연결을 다수의 Zombie PC로 유지시켜 기존의 SYN Flooding 보안대책을 무력화 함
+
+<br>
+
+구상도
+
+![2022-10-04-25구성도](../images/2022-10-04DenialofService/2022-10-04-25구성도.jpg)
+
+<br>
+
+kali -> 공격
+
+![2022-10-04-26공격](../images/2022-10-04DenialofService/2022-10-04-26공격.jpg)
+
+<br>
+
+WireShark
+
+![2022-10-04-27확인](../images/2022-10-04DenialofService/2022-10-04-27확인-1664960618640-19.jpg)
+
+3wayhand-shake를 지속적으로 보내는 모습이 보입니다.
+
+<br>
+
+
+
