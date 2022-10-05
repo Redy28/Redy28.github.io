@@ -327,3 +327,56 @@ WireShark
 
 <br>
 
+구상도
+
+![2022-10-04-26구성도](../images/2022-10-04DenialofService/2022-10-04-26구성도.jpg)<br>
+
+R2 -> 도구 준비
+
+![2022-10-04-28r2도구준비](../images/2022-10-04DenialofService/2022-10-04-28r2도구준비.jpg)
+
+<br>
+
+centOS -> bind 설치
+
+![2022-10-04-29바인드설치](../images/2022-10-04DenialofService/2022-10-04-29바인드설치.jpg)
+
+<br>
+
+centOS -> bind 설정
+
+![2022-10-04-30설정](../images/2022-10-04DenialofService/2022-10-04-30설정.jpg)
+
+```
+# vim /etc/named.conf
+12 options {
+13         listen-on port 53 { any; };
+~
+21         allow-query     { any; };
+~
+```
+
+위랑 똑같이 변경 해주시면 됩니다.
+
+<br>
+
+centOS -> UDP 확인
+
+![2022-10-04-31설정](../images/2022-10-04DenialofService/2022-10-04-31설정.jpg)
+
+<br>
+
+2012 R2 -> 공격
+
+![2022-10-04-32설정](../images/2022-10-04DenialofService/2022-10-04-32설정.jpg)
+
+똑같이 설정 해주시고 우측 상단의 IMMA CHARGIN MAH 누르시면 됩니다.
+
+<br>
+
+WireShark
+
+![2022-10-04-33와이어샤크](../images/2022-10-04DenialofService/2022-10-04-33와이어샤크.jpg)
+
+<br>
+
