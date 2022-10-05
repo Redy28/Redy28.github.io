@@ -38,6 +38,8 @@ icmp flooding이라고 도 한다.
 
 ![2022-10-04-02구상도](../images/2022-10-04DenialofService/2022-10-04-02구상도.jpg)
 
+Vmnet8로 연결 해주시면 됩니다.
+
 <br>
 
 xp -> cpu 점유율 상태
@@ -95,6 +97,8 @@ cpu 점유율이 갑자기 크게 올라 갔습니다.
 
 ![2022-10-04-06랜드어택](../images/2022-10-04DenialofService/2022-10-04-06랜드어택.jpg)
 
+Vmnet8로 연결 해주시면 됩니다.
+
 <br>
 
 kali -> 공격
@@ -140,3 +144,53 @@ redhat9 -> HTTP 확인
 <br>
 
 <br>
+
+#####  Smurf Attack
+
+- 시스템 리소스 공격 → 메모리 부하, CPU 부하 
+
+- 취약한 네트워크의 호스트들을 이용하여 공격을 수행 함 
+  - 공격자(1) → 경유지(N) → 공격대상(1) 
+
+<br>
+
+ 공격 원리 
+
+- 공격 패킷의 출발지 주소를 공격대상으로 목적지 주소를 취약한 네트워크의 Direct Broadcast주소로 변조 한 요청을 전달 함 
+- 취약한 네트워크의 호스트들이 공격대상에 응답 합 
+- 공격대상은 한꺼번에 전달되는 비정상 응답을 처리해야 하므로 부하가 발생 함
+
+<br>
+
+구성도
+
+![2022-10-04-15구성도](../images/2022-10-04DenialofService/2022-10-04-15구성도.jpg)
+
+<br>
+
+xp -> ping check
+
+![2022-10-04-14ping](../images/2022-10-04DenialofService/2022-10-04-14ping.jpg)
+
+<br>
+
+kali -> 공격
+
+![2022-10-04-16공격](../images/2022-10-04DenialofService/2022-10-04-16공격.jpg)
+
+<br>
+
+xp -> WireShark 확인
+
+![2022-10-04-17와이어샤크](../images/2022-10-04DenialofService/2022-10-04-17와이어샤크.jpg)
+
+200.200.200.xxx의 Broadcast로 신호를 보내서 200.200.200.xxx 내의 취약점이 있는 모든 pc에 응답을 받게되는 모습 입니다.
+
+<br>
+
+보안 
+
+- Router에서 Inbound되는 Direct Broadcast 차단 
+  - no ip directed-broadcast 
+-  Host에서 Direct Broadcast 패킷 수신 차단
+-  목적지가 Broadcast IP로 전송된 ICMP 패킷에 대한 응답을 하지 않도록 설정
