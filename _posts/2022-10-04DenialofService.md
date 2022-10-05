@@ -368,7 +368,7 @@ centOS -> UDP 확인
 
 2012 R2 -> 공격
 
-![2022-10-04-32설정](../images/2022-10-04DenialofService/2022-10-04-32설정.jpg)
+![2022-10-04-34설정](../images/2022-10-04DenialofService/2022-10-04-34설정.jpg)
 
 똑같이 설정 해주시고 우측 상단의 IMMA CHARGIN MAH 누르시면 됩니다.
 
