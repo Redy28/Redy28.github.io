@@ -315,3 +315,15 @@ WireShark
 
 <br>
 
+#####  UDP Flooding
+
+- UDP 의 비 연결성 및 비 신뢰성 때문에 발생 
+
+- 단순한 공격으로 높은 수위의 공격효과를 볼 수 있기 때문에 DDOS 공격의 주류를 이룬다고 할 수 있음 
+- 공격 유형
+  - 최대 수십Gbps 범위의 공격을 직접 Victim 에 전송하여 네트워크 인프라를 마비 시키는 유형 
+  - Source Address , Source Port 를 Spoofing 하여 과다한 트래픽을 Victim 들에 전송함으로써 Spoof  되는 Victim 간의 네트워크를 마비시키는 유형
+-  주로 echo와 chargen 서비스를 이용함
+
+<br>
+
