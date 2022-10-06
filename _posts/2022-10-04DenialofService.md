@@ -380,3 +380,15 @@ WireShark
 
 <br>
 
+<br>
+
+<br>
+
+##### ICMP Flooding
+
+- 활성화된 서비스나 포트가 필요하지 않다는 해당 프로토콜의 특징을 이용한 공격 
+- Smurf(Amplifier) 공격 형태 
+  - 공격자가 Source IP Address 를 Victim 으로 설정하고 특정 네트워크에 ICMP echo broadcast 패킷을 전송하면 해당 네트워크의 모든 시스템들이 ICMP echo replay 패킷을 Victim 에게 전송하는 형태의 공격
+
+<br>
+
