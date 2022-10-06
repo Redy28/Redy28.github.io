@@ -11,3 +11,15 @@
 
 <br>
 
+GNS 구성
+
+![2022-10-06-03gns](../images/2022-10-06-PortMirroring/2022-10-06-03gns.jpg)
+
+<br>
+
+ping check
+
+![2022-10-06-02핑체크](../images/2022-10-06-PortMirroring/2022-10-06-02핑체크.jpg)
+
+<br>
+
