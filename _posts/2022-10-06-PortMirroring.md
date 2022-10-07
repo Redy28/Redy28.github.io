@@ -107,3 +107,4 @@ xp -> centOS로 ping
 
 이 부분은 지금 rx옵션을 저희가 적용했기 때문에 xp -> centOS로 가는 부분만 잡혀서 보이는 부분입니다. switch 입장에서 xp에서 centOS로 가는 길이 rx이고 tx는 그 반대 입니다.
 
+<br>
