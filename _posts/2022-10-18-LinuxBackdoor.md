@@ -331,8 +331,6 @@ int main(int argc, char* argv[])
 
 ![2022-10-18-28만들기](../images/2022-10-18-LinuxBackdoor/2022-10-18-28만들기.jpg)
 
-![2022-10-18-29디렉터리](../images/2022-10-18-LinuxBackdoor/2022-10-18-29디렉터리.jpg)
-
 <br>
 
  make : gcc 관련 내용을 정의 - makefile
@@ -388,9 +386,54 @@ clean:
 	rm -rf white_ps white_net
 ```
 
-컴파일
+make (default) : 컴파일
 
 ![2022-10-18-30make](../images/2022-10-18-LinuxBackdoor/2022-10-18-30make.jpg)
 
+make install : Makefile 의 install 부분 
+
+![2022-10-18-31make](../images/2022-10-18-LinuxBackdoor/2022-10-18-31make.jpg)
+
 <br>
 
+은닉 -> netstat
+
+```
+vim /dev/white_root/.white_netfile
+
+sh            (sh 말고 pid번호를 넣어도 은닉 가능합니다.)
+```
+
+<br>
+
+프로세스 확인
+
+![2022-10-18-32결과](../images/2022-10-18-LinuxBackdoor/2022-10-18-32결과.jpg)
+
+netstat -antup 은닉 성공 입니다.
+
+<br>
+
+pid번호로 은닉 했을 때
+
+![2022-10-18-33결과](../images/2022-10-18-LinuxBackdoor/2022-10-18-33결과.jpg)
+
+<br>
+
+은닉 - > ps -ef
+
+```
+vim /dev/white_root/.white_psfile 
+
+3947
+```
+
+<br>
+
+프로세스 확인
+
+![2022-10-18-34결과](../images/2022-10-18-LinuxBackdoor/2022-10-18-34결과.jpg)
+
+ps -ef도 은닉 성공 입니다.
+
+<br>
