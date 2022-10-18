@@ -437,3 +437,20 @@ vim /dev/white_root/.white_psfile
 ps -ef도 은닉 성공 입니다.
 
 <br>
+
+원상 복구
+
+```
+vim /root/white_rootkit/Makefile 
+
+uninstall:
+        mv /bin/.ps /bin/ps
+        mv /bin/.netstat /bin/netstat
+        **rm -rf /dev/white_root(추가)**
+
+clean:
+        rm -rf white_ps white_net
+```
+
+<br>
+
