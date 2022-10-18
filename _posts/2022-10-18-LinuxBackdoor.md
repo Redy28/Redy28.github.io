@@ -327,6 +327,8 @@ int main(int argc, char* argv[])
 
 <br>
 
+###### rootkit 설치
+
 공격대상 -> rootkit 디렉터리 출력시에 보이지 않도록 할 목록 파일
 
 ![2022-10-18-28만들기](../images/2022-10-18-LinuxBackdoor/2022-10-18-28만들기.jpg)
@@ -451,6 +453,8 @@ uninstall:
 clean:
         rm -rf white_ps white_net
 ```
+
+![2022-10-18-35원상복구](../images/2022-10-18-LinuxBackdoor/2022-10-18-35원상복구.jpg)
 
 <br>
 
