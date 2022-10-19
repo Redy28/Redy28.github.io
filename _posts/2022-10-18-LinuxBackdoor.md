@@ -478,3 +478,130 @@ yum -y install aide
 
 <br>
 
+aide 설정파일 백업
+
+![2022-10-18-37백업](../images/2022-10-18-LinuxBackdoor/2022-10-18-37백업.jpg)
+
+<br>
+
+다시 설정 파일을 설정 
+
+```
+vim /etc/aide.conf
+
+# These are the default rules.
+#
+#p:      permissions
+#i:      inode:
+#n:      number of links
+#u:      user
+#g:      group
+#s:      size
+#b:      block count
+#m:      mtime
+#a:      atime
+#c:      ctime
+#S:      check for growing size
+#acl:           Access Control Lists
+#selinux        SELinux security context
+#xattrs:        Extended file attributes
+#md5:    md5 checksum
+#sha1:   sha1 checksum
+#sha256:        sha256 checksum
+#sha512:        sha512 checksum
+#rmd160: rmd160 checksum
+#tiger:  tiger checksum
+
+#haval:  haval checksum (MHASH only)
+#gost:   gost checksum (MHASH only)
+
+/bin p+i+s+md5+sha256
+/sbin p+i+s+md5+sha256
+/usr/bin p+i+s+md5+sha256
+/usr/sbin p+i+s+md5+sha256
+```
+
+<br>
+
+무결성 값 체크하여 보관
+
+![2022-10-18-38aide](../images/2022-10-18-LinuxBackdoor/2022-10-18-38aide.jpg)
+
+<br>
+
+rootkit을 이용하여 파일의 내용을 변조
+
+![2022-10-18-39MAKE](../images/2022-10-18-LinuxBackdoor/2022-10-18-39MAKE.jpg)
+
+![2022-10-18-40파일사이즈](../images/2022-10-18-LinuxBackdoor/2022-10-18-40파일사이즈.jpg)
+
+위의 사진과 비교해 보시면 용량이 달라진 점이 보이실 겁니다.
+
+<br>
+
+###### 무결성 검사
+
+사용이 가능하도록 약속된 파일명 으로 변경
+
+![2022-10-18-41변경](../images/2022-10-18-LinuxBackdoor/2022-10-18-41변경.jpg)
+
+```
+-- aide 를 이용하여 무결성값 변경된 항목을 체크 
+#p:      permissions
+#i:      inode:
+#s:      size
+#md5:    md5 checksum#sha256:        sha256 checksum
+```
+
+<br>
+
+무결성 검사
+
+```
+무결성 검사
+aide --check > /root/aide_check.txt
+
+파일 확인
+vim /root/aide_check.txt
+
+IDE found differences between database and filesystem!!
+Start timestamp: 2022-10-20 01:05:39
+
+Summary:
+  Total number of files:        2261
+  Added files:                  2
+  Removed files:                0
+  Changed files:                2
+
+
+---------------------------------------------------
+Added files:
+---------------------------------------------------
+
+added: /bin/.netstat
+added: /bin/.ps
+
+---------------------------------------------------
+Changed files:
+---------------------------------------------------
+
+changed: /bin/ps
+changed: /bin/netstat
+
+--------------------------------------------------
+Detailed information about changes:
+---------------------------------------------------
+
+
+File: /bin/ps
+  Size     : 89504                            , 7573
+  Inode    : 1703955                          , 1703941
+File: /bin/netstat
+  Size     : 128216                           , 7534
+  Inode    : 1703963                          , 1703978
+  MD5      : iTUCV1nHYHx2Nc8d042cSw==         , FhoJ8gJiosL+rKKZD/FTIA==
+  SHA256   : JNugSWksfrXPH/DYPu3NRjTYxtz0Ze+r , eOWMVUh31AJmnqweIPmHpqNBdWS0N3f4
+```
+
+<br>
+
