@@ -20,4 +20,9 @@
 
 <br>
 
-Web Proxy
+##### Web Proxy
+
+![2022-10-25-05프록시](../images/2022-10-26-Web hacking/2022-10-25-05프록시.jpg)
+
+<br>
+
