@@ -86,5 +86,53 @@ xp -> pros 실행 후 Web Server 접속 시도
 
 [https://owasp.org/Top10/](https://owasp.org/Top10/)
 
+https://www.igloo.co.kr/security-information/%ED%95%9C%EB%B0%9C-%EC%95%9E%EC%84%9C-%EC%82%B4%ED%8E%B4%EB%B3%B4%EB%8A%94-owasp-top-10-2021-draft/
+
+<br>
+
+netcraft.com
+
+https://sitereport.netcraft.com/
+
+![2022-10-25-16넷크래프트](../images/2022-10-26-Web hacking/2022-10-25-16넷크래프트.jpg)
+
+![2022-10-25-17넷크래프트](../images/2022-10-26-Web hacking/2022-10-25-17넷크래프트.jpg)
+
+<br>
+
+archieve.org
+
+![2022-10-25-18아카이브](../images/2022-10-26-Web hacking/2022-10-25-18아카이브.jpg)
+
+<br>
+
+##### 능동적 정보 수집 : 직접
+
+scanning
+
+![2022-10-25-19능동적](../images/2022-10-26-Web hacking/2022-10-25-19능동적.jpg)
+
+kali -> WebServer scanning
+
+![2022-10-25-20스캐닝](../images/2022-10-26-Web hacking/2022-10-25-20스캐닝.jpg)
+
+<br>
+
+banner grabbing 
+
+![2022-10-25-23배너](../images/2022-10-26-Web hacking/2022-10-25-23배너.jpg)
+
+![2022-10-25-22배너](../images/2022-10-26-Web hacking/2022-10-25-22배너.jpg)
+
+scanning 을 통해서 알아낸 80번 포트의 정보 확인
+
+<br>
+
+FingerPrinting 
+
+![2022-10-25-27프린트](../images/2022-10-26-Web hacking/2022-10-25-27프린트.jpg)
+
+![2022-10-25-26프린트](../images/2022-10-26-Web hacking/2022-10-25-26프린트.jpg)
+
 <br>
 
