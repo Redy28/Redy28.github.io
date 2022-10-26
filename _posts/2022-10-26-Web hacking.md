@@ -112,13 +112,13 @@ scanning
 
 ![2022-10-25-19능동적](../images/2022-10-26-Web hacking/2022-10-25-19능동적.jpg)
 
-kali -> WebServer scanning
+###### kali -> WebServer scanning
 
 ![2022-10-25-20스캐닝](../images/2022-10-26-Web hacking/2022-10-25-20스캐닝.jpg)
 
 <br>
 
-banner grabbing 
+###### banner grabbing 
 
 ![2022-10-25-23배너](../images/2022-10-26-Web hacking/2022-10-25-23배너.jpg)
 
@@ -128,11 +128,27 @@ scanning 을 통해서 알아낸 80번 포트의 정보 확인
 
 <br>
 
-FingerPrinting 
+###### FingerPrinting 
 
 ![2022-10-25-27프린트](../images/2022-10-26-Web hacking/2022-10-25-27프린트.jpg)
 
 ![2022-10-25-26프린트](../images/2022-10-26-Web hacking/2022-10-25-26프린트.jpg)
+
+<br>
+
+###### WebSpidering
+
+![2022-10-25-28웹스파이더링](../images/2022-10-26-Web hacking/2022-10-25-28웹스파이더링.jpg)
+
+![2022-10-25-29웹스파이더링](../images/2022-10-26-Web hacking/2022-10-25-29웹스파이더링.jpg)
+
+<br>
+
+paros 실행
+
+![2022-10-25-30파로스](../images/2022-10-26-Web hacking/2022-10-25-30파로스.jpg)
+
+![2022-10-25-31파로스](../images/2022-10-26-Web hacking/2022-10-25-31파로스.jpg)
 
 <br>
 
