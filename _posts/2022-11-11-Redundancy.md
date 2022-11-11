@@ -24,6 +24,8 @@
 
 <br>
 
+###### 경로 선출 단계
+
 Root Bridge(=switch) 선출 
 
 ```
@@ -61,8 +63,6 @@ switch1(config)#spanning-tree vlan 1 priority 32768
 ![2022-11-11-08복구](../images/2022-11-11-Redundancy/2022-11-11-08복구.jpg)
 
 <br>
-
-###### 경로 선출 단계
 
 Root Port 선출
 
@@ -128,6 +128,12 @@ Non Designated(Blocking) port 선출
 ###### STP 상태 변화 
 
 ![2022-11-11-14상태변화](../images/2022-11-11-Redundancy/2022-11-11-14상태변화.jpg)
+
+<br>
+
+###### STP 문제점
+
+![2022-11-11-15문제점](../images/2022-11-11-Redundancy/2022-11-11-15문제점.jpg)
 
 <br>
 
