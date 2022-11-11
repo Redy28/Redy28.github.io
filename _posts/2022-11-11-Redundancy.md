@@ -62,6 +62,8 @@ switch1(config)#spanning-tree vlan 1 priority 32768
 
 <br>
 
+###### 경로 선출 단계
+
 Root Port 선출
 
 ```
@@ -75,6 +77,57 @@ Cost Path가 적은 port → Root Switch까지 도달하기 위한 경로의 전
 인접 Switch의 Port ID가 낮은 port
 자신의 Port ID가 낮은 port
 ```
+
+![2022-11-11-10루트포트](../images/2022-11-11-Redundancy/2022-11-11-10루트포트.jpg)
+
+<br>
+
+Desiganated Port 선출
+
+```
+Designated(Forwarding) port 선출
+- Designated(Forwarding) port → Frame을 전달할 수 있는 port
+- 각 세그먼트 마다 하나의 Designated port 선출
+   세그먼트(Segment) → 장비와 장비가 연결된 구간
+- 결정 순서
+   Root Switch의 모든 port
+   Cost Path가 적은 port → Root Switch까지 도달하기 위한 경로의 전체 비용
+   인접 Switch의 Bridge ID가 낮은 port
+   인접 Switch의 Port ID가 낮은 port
+   자신의 Port ID가 낮은 port
+```
+
+![2022-11-11-11데지그](../images/2022-11-11-Redundancy/2022-11-11-11데지그.jpg)
+
+<br>
+
+non-designated Port 선출
+
+```
+Non Designated(Blocking) port 선출
+- Non Designated(Blocking) port
+   Loop를 방지하기 위해 임시로 비활성화 하는 port
+   Frame은 차단하지만 BDPU는 정상 수신 함
+- Root/Designated로 선출되지 못한 port
+```
+
+![2022-11-11-12Non Designated(Blocking) port](../images/2022-11-11-Redundancy/2022-11-11-12Non Designated(Blocking) port.jpg)
+
+<br>
+
+경로 선출
+
+![2022-11-11-13최종](../images/2022-11-11-Redundancy/2022-11-11-13최종.jpg)
+
+<br>
+
+<br>
+
+<br>
+
+###### STP 상태 변화 
+
+![2022-11-11-14상태변화](../images/2022-11-11-Redundancy/2022-11-11-14상태변화.jpg)
 
 <br>
 
