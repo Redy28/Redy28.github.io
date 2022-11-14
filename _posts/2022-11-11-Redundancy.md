@@ -275,6 +275,8 @@ root switch  이중화
 
 ##### Link 이중화
 
+![2022-11-11-49사진](../images/2022-11-11-Redundancy/2022-11-11-49사진.jpg)
+
 ![2022-11-11-33링크이중화](../images/2022-11-11-Redundancy/2022-11-11-33링크이중화.jpg)
 
 <br>
@@ -429,4 +431,254 @@ L3_02(config)#ip route 192.168.1.0 255.255.255.0 1.1.1.1
 ```
 
 <br>
+
+<br>
+
+<br>
+
+###### Teaming
+
+구성도
+
+![2022-11-11-50구성도](../images/2022-11-11-Redundancy/2022-11-11-50구성도.jpg)
+
+<br>
+
+인터페이스 설정
+
+```
+-- slave 인터페이스 설정 
+[root@localhost network-scripts]# vim ./ifcfg-ens33
+PROXY_METHOD=none
+BROWSER_ONLY=no
+BOOTPROTO=dhcp
+DEFROUTE=yes
+IPV4_FAILURE_FATAL=no
+IPV6INIT=yes
+IPV6_AUTOCONF=yes
+IPV6_DEFROUTE=yes
+IPV6_FAILURE_FATAL=no
+IPV6_ADDR_GEN_MODE=stable-privacy
+NAME=ens33
+UUID=cad76a87-2f29-35f4-891b-73b7c4daa879
+DEVICE=ens33
+ONBOOT=no
+
+[root@localhost network-scripts]# vim ./ifcfg-ens32
+TYPE=Ethernet
+PROXY_METHOD=none
+BROWSER_ONLY=no
+BOOTPROTO=dhcp
+DEFROUTE=yes
+IPV4_FAILURE_FATAL=no
+IPV6INIT=yes
+IPV6_AUTOCONF=yes
+IPV6_DEFROUTE=yes
+IPV6_FAILURE_FATAL=no
+IPV6_ADDR_GEN_MODE=stable-privacy
+NAME=ens32
+UUID=c79b0dea-fa9e-4e93-b540-5e621db444fe
+DEVICE=ens32
+ONBOOT=no
+~
+
+-- NetworkManager 다시 시작후 적용된 내용 확인 
+[root@localhost ~]# systemctl restart NetworkManager
+[root@localhost ~]# nmcli con
+NAME    UUID                                  TYPE      DEVICE 
+ens32   c79b0dea-fa9e-4e93-b540-5e621db444fe  ethernet  ens32  
+ens33   cad76a87-2f29-35f4-891b-73b7c4daa879  ethernet  ens33  
+virbr0  26447ce4-3f70-42d3-8da3-9d4d301910b8  bridge    virbr0
+```
+
+<br>
+
+NetworkManager 상태 확인
+
+```
+[root@localhost ~]# systemctl status NetworkManager
+● NetworkManager.service - Network Manager
+   Loaded: loaded (/usr/lib/systemd/system/NetworkManager.service; enabled; vendor preset: enabled)
+   Active: active (running) since 월 2022-11-14 20:47:39 KST; 6min ago
+     Docs: man:NetworkManager(8)
+ Main PID: 3005 (NetworkManager)
+    Tasks: 5
+   CGroup: /system.slice/NetworkManager.service
+           ├─3005 /usr/sbin/NetworkManager --no-daemon
+           ├─3023 /sbin/dhclient -d -q -sf /usr/libexec/nm-dhcp-helper -pf /v...
+           └─3026 /sbin/dhclient -d -q -sf /usr/libexec/nm-dhcp-helper -pf /v...
+```
+
+<br>
+
+어댑터 및 인터페이스 확인
+
+```
+[root@localhost ~]# ip link
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: ens32: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:0c:29:f9:e3:9a brd ff:ff:ff:ff:ff:ff
+3: ens33: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 00:0c:29:f9:e3:a4 brd ff:ff:ff:ff:ff:ff
+4: virbr0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN mode DEFAULT group default qlen 1000
+    link/ether 52:54:00:5e:76:2a brd ff:ff:ff:ff:ff:ff
+5: virbr0-nic: <BROADCAST,MULTICAST> mtu 1500 qdisc pfifo_fast master virbr0 state DOWN mode DEFAULT group default qlen 1000
+    link/ether 52:54:00:5e:76:2a brd ff:ff:ff:ff:ff:ff
+
+
+[root@localhost ~]# nmcli device status 
+DEVICE      TYPE      STATE          CONNECTION 
+ens32       ethernet  연결됨         ens32      
+virbr0      bridge    연결됨         virbr0     
+ens33       ethernet  연결됨         ens33      
+lo          loopback  관리되지 않음  --         
+virbr0-nic  tun       관리되지 않음  --
+```
+
+<br>
+
+teaming 0 이라는 이름으로 master 인터페이스를 생성 
+
+```
+# nmcli con add con-name teaming0 type team ifname teaming0 config  '{ "runner":{"name":"activebackup","hwaddr_policy":"by_active"}, "link_wath":{"name":"ethtool","delay_up":2500,"delay_down":1000}, "ports":{"ens32":{"prio":-10,"sticky":true},"ens33":{"prio":100}}}'
+
+[root@localhost ~]# nmcli connection show 
+NAME      UUID                                  TYPE      DEVICE   
+teaming0  5bfd0455-58bf-4167-9b11-29776876a8ae  team      teaming0 
+ens32     c79b0dea-fa9e-4e93-b540-5e621db444fe  ethernet  ens32    
+ens33     cad76a87-2f29-35f4-891b-73b7c4daa879  ethernet  ens33    
+virbr0    26447ce4-3f70-42d3-8da3-9d4d301910b8  bridge    virbr0
+```
+
+<br>
+
+ens32 , ens33 이름으로 slave 로 지정
+
+```
+[root@localhost ~]# nmcli connection  add con-name teaming0-port1 type team-slave ifname ens32 master teaming0
+Warning: There are 2 other connections with the name 'teaming0-port1'. Reference the connection by its uuid 'c60e0524-efa3-4c74-8027-3a40b11fae0b'
+연결 'teaming0-port1' (c60e0524-efa3-4c74-8027-3a40b11fae0b)이 성공적으로 추가되었습니다.
+[root@localhost ~]# nmcli connection  add con-name teaming0-port2 type team-slave ifname ens33 master teaming0
+연결 'teaming0-port2' (a38fff1f-608c-4977-a02a-599926f9dfd5)이 성공적으로 추가되었습니다.
+
+
+[root@localhost ~]# nmcli connection show 
+NAME            UUID                                  TYPE      DEVICE   
+teaming0        5bfd0455-58bf-4167-9b11-29776876a8ae  team      teaming0 
+ens32           c79b0dea-fa9e-4e93-b540-5e621db444fe  ethernet  ens32    
+ens33           cad76a87-2f29-35f4-891b-73b7c4daa879  ethernet  ens33    
+virbr0          26447ce4-3f70-42d3-8da3-9d4d301910b8  bridge    virbr0   
+teaming0-port1  ef4a7136-64e7-47b7-85f7-468ff604075d  ethernet  --       
+teaming0-port2  62c0c18a-a0da-4bea-b7a7-d95236a1dff5  ethernet  --
+```
+
+<br>
+
+teaming0 인터페이스에 주소 입력 
+
+```
+-- teaming0 인터페이스에 주소 입력
+# nmcli connection modify teaming0 ipv4.address 172.16.0.190/24 ipv4.gateway 172.16.0.254 ipv4.dns 203.248.252.2 ipv4.method manual connection.autoconnect yes
+```
+
+<br>
+
+slave > master 순으로 활성화
+
+```
+[root@localhost ~]# nmcli connection up teaming0-port1
+연결이 성공적으로 활성화되었습니다 (D-Bus 활성 경로: /org/freedesktop/NetworkManager/ActiveConnection/5)
+[root@localhost ~]# nmcli connection up teaming0-port2
+연결이 성공적으로 활성화되었습니다 (D-Bus 활성 경로: /org/freedesktop/NetworkManager/ActiveConnection/6)
+[root@localhost ~]# nmcli connection up teaming0
+Connection successfully activated (master waiting for slaves) (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/7)
+
+[root@localhost ~]# nmcli connection reload
+[root@localhost ~]# nmcli connection show 
+NAME            UUID                                  TYPE      DEVICE   
+teaming0        5bfd0455-58bf-4167-9b11-29776876a8ae  team      teaming0 
+virbr0          26447ce4-3f70-42d3-8da3-9d4d301910b8  bridge    virbr0   
+teaming0-port1  ef4a7136-64e7-47b7-85f7-468ff604075d  ethernet  ens32    
+teaming0-port2  62c0c18a-a0da-4bea-b7a7-d95236a1dff5  ethernet  ens33    
+ens32           c79b0dea-fa9e-4e93-b540-5e621db444fe  ethernet  --       
+ens33           cad76a87-2f29-35f4-891b-73b7c4daa879  ethernet  --
+```
+
+<br>
+
+teaming 확인
+
+```
+[root@localhost ~]# teamnl teaming0 ports
+ 3: ens33: up 1000Mbit FD 
+ 2: ens32: up 1000Mbit FD 
+
+[root@localhost ~]# teamdctl teaming0 state
+setup:
+  runner: activebackup
+ports:
+  ens32
+    link watches:
+      link summary: up
+      instance[link_watch_0]:
+        name: ethtool
+        link: up
+        down count: 0
+  ens33
+    link watches:
+      link summary: up
+      instance[link_watch_0]:
+        name: ethtool
+        link: up
+        down count: 0
+runner:
+  active port: ens32
+
+
+[root@localhost ~]# ifconfig teaming0
+teaming0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.16.0.190  netmask 255.255.255.0  broadcast 172.16.0.255
+        inet6 fe80::1c7c:a226:b06a:ff  prefixlen 64  scopeid 0x20<link>
+        ether 00:0c:29:f9:e3:9a  txqueuelen 1000  (Ethernet)
+        RX packets 5  bytes 638 (638.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 41  bytes 5557 (5.4 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+[root@localhost ~]# ping www.google.com
+PING www.google.com (172.217.25.4) 56(84) bytes of data.
+64 bytes from hkg07s24-in-f4.1e100.net (172.217.25.4): icmp_seq=1 ttl=128 time=45.9 ms
+64 bytes from hkg07s24-in-f4.1e100.net (172.217.25.4): icmp_seq=2 ttl=128 time=44.9 ms
+```
+
+<br>
+
+active-backup test
+
+```
+중간에 ens32 를 링크 끊는다
+
+다시 확인 
+[root@localhost network-scripts]# teamdctl teaming0 state
+setup:
+  runner: activebackup
+ports:
+  ens32
+    link watches:
+      link summary: down
+      instance[link_watch_0]:
+        name: ethtool
+        link: down
+        down count: 1
+  ens33
+    link watches:
+      link summary: up
+      instance[link_watch_0]:
+        name: ethtool
+        link: up
+        down count: 0
+runner:
+  active port: ens33
+```
 
