@@ -266,3 +266,86 @@ PVST 적용
 root switch  이중화
 
 ![2022-11-11-32이중화](../images/2022-11-11-Redundancy/2022-11-11-32이중화.jpg)
+
+<br>
+
+<br>
+
+<br>
+
+##### Link 이중화
+
+![2022-11-11-33링크이중화](../images/2022-11-11-Redundancy/2022-11-11-33링크이중화.jpg)
+
+<br>
+
+![2022-11-11-41이더채널](../images/2022-11-11-Redundancy/2022-11-11-41이더채널.jpg)
+
+###### L2 etherchannel
+
+구성도
+
+![2022-11-11-35구성도](../images/2022-11-11-Redundancy/2022-11-11-35구성도.jpg)
+
+<br>
+
+각 컴퓨터 주소 입력
+
+![2022-11-11-34주소](../images/2022-11-11-Redundancy/2022-11-11-34주소.jpg)
+
+<br>
+
+각 스위치별로 사용될 인터페이스 범위 입력 
+
+![2022-11-11-36범위](../images/2022-11-11-Redundancy/2022-11-11-36범위.jpg)
+
+```
+-- 양쪽 스위치 동일 
+Switch(config-if-range)#interface range f0/1-4
+```
+
+<br>
+
+etherchannel 협상시 사용할 프로토콜 지정 > 활성화
+
+![2022-11-11-37설정](../images/2022-11-11-Redundancy/2022-11-11-37설정.jpg)
+
+![2022-11-11-38확인](../images/2022-11-11-Redundancy/2022-11-11-38확인.jpg)
+
+```
+LAcP:Link Aggregation , 국제표준
+PAgP:Port Aggregation , cisco 전용 
+
+-- 양쪽 스위치 모두 
+Switch(config-if-range)#channel-protocol lacp 
+Switch(config-if-range)#channel-group 1 mode active
+Switch(config-if-range)#
+
+-- 논리적인 포트 생성 메시지를 확인 
+Creating a port-channel interface Port-channel 1
+
+-- 새로운 인터페이스 진입
+Switch(config)#interface port-channel 1
+
+-- etherchannel 정보 확인
+Switch#sh etherchannel summary
+```
+
+<br>
+
+양쪽 통신 테스트
+
+![2022-11-11-40핑](../images/2022-11-11-Redundancy/2022-11-11-40핑.jpg)
+
+![2022-11-11-39확인](../images/2022-11-11-Redundancy/2022-11-11-39확인.jpg)
+
+이 port 4개 중에서 한개의 선을 끊더라도 통신이 잘 되는것을 확인 할 수 있습니다.
+
+<br>
+
+<br>
+
+<br>
+
+###### L3 etherchaanel
+
