@@ -248,3 +248,6 @@ InterVlan 확인
 ![2022-11-11-28핑](../images/2022-11-11-Redundancy/2022-11-11-28핑.jpg)
 
 <br>
+
+root switch(bridge) 를 확인
+
