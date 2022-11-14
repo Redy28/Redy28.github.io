@@ -173,3 +173,51 @@ DSW1 - SVI 에 주소 입력
 
 <br>
 
+ ASW3,4 에  PC1~4 까지 연결된 인터페이스에 ACCESS port 설정
+
+![2022-11-11-23VLAN](../images/2022-11-11-Redundancy/2022-11-11-23VLAN.jpg)
+
+<br>
+
+각 ASW , DSW 에  Trunk  설정 
+
+```
+ASW1(config)#int f0/2
+ASW1(config-if)#switchport mode trunk 
+ASW1(config-if)#
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/2, changed state to down
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/2, changed state to up
+ASW1(config-if)#switchport trunk allowed vlan 10,20
+
+ASW1(config)#int f0/3
+ASW1(config-if)#switchport mode trunk 
+ASW1(config-if)#
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/3, changed state to down
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/3, changed state to up
+ASW1(config-if)#switchport trunk allowed vlan 10,20
+
+ASW1(config)#int f0/1
+ASW1(config-if)#switchport mode trunk 
+ASW1(config-if)#
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to down
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to up
+ASW1(config-if)#switchport trunk allowed vlan 10,20
+
+ASW1(config)#int g0/1
+ASW1(config-if)#switchport mode trunk 
+ASW1(config-if)#
+%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/1, changed state to down
+%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/1, changed state to up
+ASW1(config-if)#switchport trunk allowed vlan 10,20
+
+이런식으로 Switch에 연결되어 있는 모든 port를 해주시면 됩니다.
+```
+
+<br>
+
+VLAN 간 통신 확인
+
+![2022-11-11-24통신](../images/2022-11-11-Redundancy/2022-11-11-24통신.jpg)
+
+<br>
+
