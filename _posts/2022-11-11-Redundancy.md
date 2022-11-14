@@ -137,3 +137,39 @@ Non Designated(Blocking) port 선출
 
 <br>
 
+<br>
+
+<br>
+
+##### PVST(Per VLAN Spanning Tree)
+
+![2022-11-11-16pvst](../images/2022-11-11-Redundancy/2022-11-11-16pvst.jpg)
+
+<br>
+
+구성도
+
+![2022-11-11-18pvst](../images/2022-11-11-Redundancy/2022-11-11-18pvst.jpg)
+
+<br>
+
+각 PC IP주소 설정
+
+![2022-11-11-19IP](../images/2022-11-11-Redundancy/2022-11-11-19IP.jpg)
+
+<br>
+
+각 Switch 별 VLan 설정
+
+![2022-11-11-20VLAN](../images/2022-11-11-Redundancy/2022-11-11-20VLAN.jpg)
+
+이런식으로 5개의 Switch 설정을 해주시면 됩니다.
+
+<br>
+
+DSW1 - SVI 에 주소 입력
+
+![2022-11-11-21dsw1](../images/2022-11-11-Redundancy/2022-11-11-21dsw1.jpg)
+
+<br>
+
