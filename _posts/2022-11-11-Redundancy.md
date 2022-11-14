@@ -251,3 +251,18 @@ InterVlan 확인
 
 root switch(bridge) 를 확인
 
+![2022-11-11-29루트브릿지](../images/2022-11-11-Redundancy/2022-11-11-29루트브릿지.jpg)
+
+<br>
+
+PVST 적용
+
+![2022-11-11-30pvst](../images/2022-11-11-Redundancy/2022-11-11-30pvst.jpg)
+
+![2022-11-11-31확인](../images/2022-11-11-Redundancy/2022-11-11-31확인.jpg)
+
+<br>
+
+root switch  이중화
+
+![2022-11-11-32이중화](../images/2022-11-11-Redundancy/2022-11-11-32이중화.jpg)
