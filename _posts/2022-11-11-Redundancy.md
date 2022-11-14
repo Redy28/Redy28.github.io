@@ -289,7 +289,7 @@ root switch  이중화
 
 <br>
 
-각 컴퓨터 주소 입력
+각 PC 주소 입력
 
 ![2022-11-11-34주소](../images/2022-11-11-Redundancy/2022-11-11-34주소.jpg)
 
@@ -348,4 +348,78 @@ Switch#sh etherchannel summary
 <br>
 
 ###### L3 etherchaanel
+
+구성도
+
+![2022-11-11-42구성도](../images/2022-11-11-Redundancy/2022-11-11-42구성도.jpg)
+
+<br>
+
+각 PC 주소 입력
+
+![2022-11-11-43주소](../images/2022-11-11-Redundancy/2022-11-11-43주소.jpg)
+
+<br>
+
+각 Switch별 SVI 를 설정
+
+![2022-11-11-44svi](../images/2022-11-11-Redundancy/2022-11-11-44svi.jpg)
+
+```
+L3_01(config)#interface vlan 1
+L3_01(config-if)#ip address 192.168.1.254 255.255.255.0
+L3_01(config-if)#no sh
+
+L3_02(config)#interface vlan 1
+L3_02(config-if)#ip address 192.168.2.254 255.255.255.0
+L3_02(config-if)#no sh
+```
+
+<br>
+
+Port-channel 인터페이스 설정
+
+![2022-11-11-45채널](../images/2022-11-11-Redundancy/2022-11-11-45채널.jpg)
+
+```
+-- 사용될 물리적 인터페이스의 범위 설정
+L3_01(config)#interface range f0/1-4
+
+-- etherchannel 협상시 사용할 프로토콜 설정 
+L3_01(config-if-range)#channel-protocol lacp
+
+-- 활성화
+L3_01(config-if-range)#channel-group 1 mode active
+
+-- 논리적 인터페이스 생성 메시지 확인
+Creating a port-channel interface Port-channel 1
+
+-- 논리적 인터페이스 진입
+L3_01(config)#int port-channel 1
+L3_01(config-if)#
+
+-- 논리 채널 인터페이스 확인
+L3_01(config-if)#do sh etherchannel summary
+
+-- 스위치 포트 해제 
+L3_01(config-if)#no switchport 
+
+-- 주소 입력
+L3_01(config-if)#ip addr 1.1.1.1 255.0.0.0
+```
+
+<br>
+
+라우터 선언 및 라우팅 테이블 설정 
+
+![2022-11-11-46라우팅](../images/2022-11-11-Redundancy/2022-11-11-46라우팅.jpg)
+
+```
+L3_01(config)#ip routing
+L3_01(config)#do sh ip rou
+```
+
+![2022-11-11-47통신](../images/2022-11-11-Redundancy/2022-11-11-47통신.jpg)
+
+<br>
 
