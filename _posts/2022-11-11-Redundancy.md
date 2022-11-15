@@ -841,3 +841,4 @@ R2(config)#
 *Mar  1 01:43:20.155: %VRRP-6-STATECHANGE: Fa0/1 Grp 1 state Master -> Backup
 ```
 
+<br>
