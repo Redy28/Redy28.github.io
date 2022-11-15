@@ -1,6 +1,6 @@
 # Redundancy
 
-##### 이중화
+### 이중화
 
 ![2022-11-11-01이중화](../images/2022-11-11-Redundancy/2022-11-11-01이중화.jpg)
 
@@ -8,13 +8,13 @@
 
 <br>
 
-##### STP (Spanning Tree Protocol)
+#### STP (Spanning Tree Protocol)
 
 ![2022-11-11-03stp](../images/2022-11-11-Redundancy/2022-11-11-03stp.jpg)
 
 <br>
 
-###### BPDU(Bridge PDU)
+##### BPDU(Bridge PDU)
 
 ![2022-11-11-04bpdu](../images/2022-11-11-Redundancy/2022-11-11-04bpdu.jpg)
 
@@ -24,7 +24,7 @@
 
 <br>
 
-###### 경로 선출 단계
+##### 경로 선출 단계
 
 Root Bridge(=switch) 선출 
 
@@ -125,13 +125,13 @@ Non Designated(Blocking) port 선출
 
 <br>
 
-###### STP 상태 변화 
+##### STP 상태 변화 
 
 ![2022-11-11-14상태변화](../images/2022-11-11-Redundancy/2022-11-11-14상태변화.jpg)
 
 <br>
 
-###### STP 문제점
+##### STP 문제점
 
 ![2022-11-11-15문제점](../images/2022-11-11-Redundancy/2022-11-11-15문제점.jpg)
 
@@ -273,7 +273,7 @@ root switch  이중화
 
 <br>
 
-##### Link 이중화
+#### Link 이중화
 
 ![2022-11-11-49사진](../images/2022-11-11-Redundancy/2022-11-11-49사진.jpg)
 
@@ -283,7 +283,7 @@ root switch  이중화
 
 ![2022-11-11-41이더채널](../images/2022-11-11-Redundancy/2022-11-11-41이더채널.jpg)
 
-###### L2 etherchannel
+##### L2 etherchannel
 
 구성도
 
@@ -349,7 +349,7 @@ Switch#sh etherchannel summary
 
 <br>
 
-###### L3 etherchaanel
+##### L3 etherchaanel
 
 구성도
 
@@ -436,7 +436,7 @@ L3_02(config)#ip route 192.168.1.0 255.255.255.0 1.1.1.1
 
 <br>
 
-###### Teaming
+##### Teaming
 
 구성도
 
@@ -688,13 +688,13 @@ runner:
 
 <br>
 
-##### Gateway 이중화
+#### Gateway 이중화
 
 ![2022-11-11-51게이트이중화](../images/2022-11-11-Redundancy/2022-11-11-51게이트이중화.jpg)
 
 <br>
 
-###### VRRP
+##### VRRP
 
 ![2022-11-11-61vrrp](../images/2022-11-11-Redundancy/2022-11-11-61vrrp.jpg)
 
@@ -763,7 +763,7 @@ R2(config-if)#vrrp 1 authentication md5 key-string 0 aaa
 
 <br>
 
-inside link 변화 확인
+###### inside link 변화 확인
 
 링크가 끊어지는 경우 G/W 의 변화
 
@@ -777,7 +777,7 @@ Master 로 가는 링크를 임시 삭제
 
 <br>
 
-uplink 의 변화(outside 쪽 link)
+###### uplink 의 변화(outside 쪽 link)
 
 NAT-PAT 설정
 
@@ -842,3 +842,10 @@ R2(config)#
 ```
 
 <br>
+
+<br>
+
+<br>
+
+
+
