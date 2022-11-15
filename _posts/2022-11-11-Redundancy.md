@@ -682,3 +682,76 @@ runner:
   active port: ens33
 ```
 
+<br>
+
+<br>
+
+<br>
+
+##### Gateway 이중화
+
+![2022-11-11-51게이트이중화](../images/2022-11-11-Redundancy/2022-11-11-51게이트이중화.jpg)
+
+<br>
+
+구성도
+
+
+
+<br>
+
+PC 에 주소 입력
+
+![2022-11-11-52pc주소](../images/2022-11-11-Redundancy/2022-11-11-52pc주소.jpg)
+
+<br>
+
+각 라우터에 인터페이스를 설정
+
+![2022-11-11-53라우터인터페이스](../images/2022-11-11-Redundancy/2022-11-11-53라우터인터페이스.jpg)
+
+<br>
+
+구간별 통신 체크
+
+![2022-11-11-54구간통신](../images/2022-11-11-Redundancy/2022-11-11-54구간통신.jpg)
+
+<br>
+
+VRRP
+
+```
+Master:R1]
+
+R1(config)#int f0/1
+R1(config-if)#vrrp 1 ip 10.10.10.254    -- Virtual IP Adddress
+R1(config-if)#vrrp 1 priority 120       -- 우선순위 설정
+R1(config-if)#vrrp 1 timers advertise 5 -- 5초 마다 체크
+R1(config-if)#exit
+R1(config)#track 1 interface fastEthernet 0/0 line-protocol    -- Tracking 정책 : Uplink 모니터링 
+
+R1(config)#int f0/1
+R1(config)#vrrp 1 track 1 decrement 30        -- Tracking 중 문제발생시 우선순위 를 감소 
+R1(config-if)#vrrp 1 preempt delay minimum 5  -- 최소 5초후에 변경과정 활성화 
+R1(config-if)#vrrp 1 authentication md5 key-string 0 aaa  -- master-backup 간 인증키 
+
+Backup:R2]
+R2(config)#int f0/1
+R2(config-if)#vrrp 1 ip 10.10.10.254
+R2(config-if)#vrrp 1 priority 100          --  우선순위를 Master 보다 낮게 설정 
+R2(config-if)#vrrp 1 timers learn          -- Master의 타이머값 그대로 사용
+R2(config-if)#vrrp 1 authentication md5 key-string 0 aaa 
+```
+
+<br>
+
+구간별 통신 체크
+
+![2022-11-11-55구간통신](../images/2022-11-11-Redundancy/2022-11-11-55구간통신.jpg)
+
+<br>VRRP 정보 확인
+
+![2022-11-11-56vrrp확인](../images/2022-11-11-Redundancy/2022-11-11-56vrrp확인.jpg)
+
+<br>
+
