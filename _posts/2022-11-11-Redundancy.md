@@ -694,9 +694,17 @@ runner:
 
 <br>
 
+###### VRRP
+
+![2022-11-11-61vrrp](../images/2022-11-11-Redundancy/2022-11-11-61vrrp.jpg)
+
+![2022-11-11-62vrrp](../images/2022-11-11-Redundancy/2022-11-11-62vrrp.jpg)
+
+<br>
+
 구성도
 
-
+![2022-11-11-57구성도](../images/2022-11-11-Redundancy/2022-11-11-57구성도.jpg)
 
 <br>
 
@@ -754,4 +762,82 @@ R2(config-if)#vrrp 1 authentication md5 key-string 0 aaa
 ![2022-11-11-56vrrp확인](../images/2022-11-11-Redundancy/2022-11-11-56vrrp확인.jpg)
 
 <br>
+
+inside link 변화 확인
+
+링크가 끊어지는 경우 G/W 의 변화
+
+Master 로 가는 링크를 임시 삭제
+
+![2022-11-11-60끊기](../images/2022-11-11-Redundancy/2022-11-11-60끊기.jpg)
+
+![2022-11-11-58핑](../images/2022-11-11-Redundancy/2022-11-11-58핑.jpg)
+
+![2022-11-11-59와이어샤크](../images/2022-11-11-Redundancy/2022-11-11-59와이어샤크.jpg)
+
+<br>
+
+uplink 의 변화(outside 쪽 link)
+
+NAT-PAT 설정
+
+```
+Master:R1]
+R1(config)#access-list 1 permit 10.10.10.0 0.0.0.255
+R1(config)#int f0/0
+R1(config-if)#ip nat outside
+R1(config-if)#int f0/1
+R1(config-if)#ip nat inside
+R1(config)#ip nat inside source list 1 interface f0/1 overload
+
+Backup:R2]
+R2(config)#access-list 1 permit 10.10.10.0 0.0.0.255
+R2(config)#int f0/0
+R2(config-if)#ip nat outside
+R2(config-if)#int f0/1
+R2(config-if)#ip nat inside
+R2(config-if)#exit
+R2(config)#ip nat inside source list 1 interface f0/1 overload
+```
+
+<br>
+
+Master 의 interface 를 shutdown
+
+```
+R1(config)#int f0/0
+R1(config-if)#sh
+R1(config-if)#
+*Mar  1 01:43:57.651: %TRACKING-5-STATE: 1 interface Fa0/1 line-protocol Up->Down
+R1(config-if)#
+*Mar  1 01:43:59.651: %LINK-5-CHANGED: Interface FastEthernet0/0, changed state to administratively down
+*Mar  1 01:44:00.651: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to down  -- Tra
+
+R2(config)#
+*Mar  1 01:41:42.775: %VRRP-6-STATECHANGE: Fa0/1 Grp 1 state Backup -> Master
+
+
+PC1> ping 8.8.8.8
+84 bytes from 8.8.8.8 icmp_seq=1 ttl=127 time=76.187 ms
+*10.10.10.201 icmp_seq=2 ttl=255 time=15.824 ms (ICMP type:3, code:1, Destination host unreachable)
+84 bytes from 8.8.8.8 icmp_seq=3 ttl=127 time=61.015 ms
+84 bytes from 8.8.8.8 icmp_seq=4 ttl=127 time=61.774 ms
+84 bytes from 8.8.8.8 icmp_seq=5 ttl=127 time=60.591 ms
+```
+
+<br>
+
+Master 의 interface 를 no shutdown
+
+```
+R1(config-if)#no sh
+R1(config-if)#
+*Mar  1 01:45:42.607: %TRACKING-5-STATE: 1 interface Fa0/0 line-protocol Down->Up
+R1(config-if)#
+*Mar  1 01:45:44.599: %LINK-3-UPDOWN: Interface FastEthernet0/0, changed state to up
+*Mar  1 01:45:45.599: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+
+R2(config)#
+*Mar  1 01:43:20.155: %VRRP-6-STATECHANGE: Fa0/1 Grp 1 state Master -> Backup
+```
 
